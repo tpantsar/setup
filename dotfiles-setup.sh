@@ -1,17 +1,17 @@
 #!/bin/bash
 
 ORIGINAL_DIR=$(pwd)
-REPO_URL="https://github.com/typecraft-dev/dotfiles"
+REPO_URL="https://github.com/tpantsar/dotfiles"
 REPO_NAME="dotfiles"
 
-
+# Check if stow is installed using dpkg (Debian/Ubuntu)
 is_stow_installed() {
-  pacman -Qi "stow" &> /dev/null
+  dpkg -s "stow" &> /dev/null
 }
 
 if ! is_stow_installed; then
-  echo "Install stow first"
-  exit 1
+  echo "GNU Stow is not installed. Installing..."
+  sudo apt update && sudo apt install -y stow
 fi
 
 cd ~
@@ -26,11 +26,8 @@ fi
 # Check if the clone was successful
 if [ $? -eq 0 ]; then
   cd "$REPO_NAME"
-  stow zsh
-  stow ghostty
-  stow nvim
+  stow .
 else
   echo "Failed to clone the repository."
   exit 1
 fi
-
