@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Source utils.sh from parent directory
 source "$SCRIPT_DIR/../utils.sh"
 
-install_packages python-pipx gnome-shell-extensions
+install_packages pipx gnome-shell-extensions
 
 # Install gnome-extensions-cli only if not already installed
 if ! command -v ~/.local/bin/gext &> /dev/null; then
