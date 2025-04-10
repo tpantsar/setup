@@ -79,10 +79,4 @@ if [ -d gnome ]; then
   . gnome/gnome-settings.sh
 fi
 
-# Some programs just run better as flatpaks. Like discord/spotify
-if [ -f install-flatpaks.sh ]; then
-  echo "Installing flatpaks (like discord and spotify)"
-  . install-flatpaks.sh
-fi
-
 echo "Setup complete! You may want to reboot your system."
