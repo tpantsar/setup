@@ -22,4 +22,4 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Super>5
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6']"
 
 # Alt+F4 is very cumbersome
-gsettings set org.gnome.desktop.wm.keybindings close "['<Super>w']"
+gsettings set org.gnome.desktop.wm.keybindings close "['<Super>c']"
