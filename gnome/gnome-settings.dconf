@@ -130,6 +130,7 @@ startup-status=0
 support-notifier-showed-version=34
 support-notifier-type=0
 theme=false
+top-panel-position=1
 type-to-search=true
 weather=true
 window-demands-attention-focus=true
@@ -165,7 +166,7 @@ enable-move-to-workspace-shortcuts=true
 open-menu=@as []
 
 [space-bar/state]
-version=32
+version=33
 
 [switcher]
 icon-size=uint32 23
