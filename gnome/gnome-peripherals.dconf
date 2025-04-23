@@ -1,3 +1,7 @@
+[keyboard]
+delay=uint32 200
+repeat-interval=uint32 15
+
 [mouse]
 accel-profile='default'
 double-click=400
