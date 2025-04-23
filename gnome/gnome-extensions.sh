@@ -31,4 +31,4 @@ for ext in "${EXTENSIONS[@]}"; do
 done
 
 # Now load extensions settings from dconf file
-dconf load /org/gnome/shell/extensions/ < "$SCRIPT_DIR/gnome-extensions.dconf"
+dconf load /org/gnome/shell/extensions/ < "$SCRIPT_DIR/settings/shell/extensions.dconf"
