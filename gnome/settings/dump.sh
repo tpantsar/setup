@@ -18,9 +18,15 @@ dconf dump /org/gnome/desktop/peripherals/ > "$PERIPHERALS"
 dconf dump /org/gnome/desktop/input-sources/ > "$INPUT_SOURCES"
 dconf dump /org/gnome/desktop/wm/ > "$WM"
 
+# Settings daemon
+SETTINGS_DAEMON="$SCRIPT_DIR/settings-daemon/settings-daemon.dconf"
+
+dconf dump /org/gnome/settings-daemon/ > "$SETTINGS_DAEMON"
+
 echo "Dumped GNOME settings to:"
 echo "  $EXTENSIONS"
 echo "  $APP_SWITCHER"
 echo "  $PERIPHERALS"
 echo "  $INPUT_SOURCES"
 echo "  $WM"
+echo "  $SETTINGS_DAEMON"
