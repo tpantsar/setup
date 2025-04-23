@@ -1,0 +1,8 @@
+[mouse]
+accel-profile='default'
+double-click=400
+drag-threshold=8
+left-handed=false
+middle-click-emulation=false
+natural-scroll=false
+speed=0.0
