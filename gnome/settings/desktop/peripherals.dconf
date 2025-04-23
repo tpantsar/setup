@@ -10,3 +10,6 @@ left-handed=false
 middle-click-emulation=false
 natural-scroll=false
 speed=0.0
+
+[touchpad]
+two-finger-scrolling-enabled=true
