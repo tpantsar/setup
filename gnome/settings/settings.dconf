@@ -14,7 +14,7 @@ window-position=(1285, 5)
 word-size=64
 
 [control-center]
-last-panel='keyboard'
+last-panel='multitasking'
 window-state=(980, 640, true)
 
 [desktop/a11y]
@@ -71,6 +71,7 @@ cursor-blink-timeout=10
 cursor-size=24
 cursor-theme='Bibata-Modern-Classic'
 enable-animations=false
+enable-hot-corners=false
 font-name='Ubuntu 10'
 gtk-color-palette='black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90'
 gtk-color-scheme=''
