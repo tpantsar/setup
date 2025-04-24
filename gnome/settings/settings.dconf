@@ -369,12 +369,13 @@ check-x11wayland=true
 
 [shell/extensions/forge]
 css-last-update=uint32 37
+css-updated='1745494036537'
 focus-border-toggle=true
 move-pointer-focus-enabled=true
 tiling-mode-enabled=true
 window-gap-hidden-on-single=true
-window-gap-size=uint32 2
-window-gap-size-increment=uint32 2
+window-gap-size=uint32 5
+window-gap-size-increment=uint32 1
 
 [shell/extensions/forge/keybindings]
 con-split-horizontal=@as []
