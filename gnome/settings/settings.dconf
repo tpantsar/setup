@@ -14,7 +14,7 @@ window-position=(1285, 5)
 word-size=64
 
 [control-center]
-last-panel='multitasking'
+last-panel='notifications'
 window-state=(980, 640, true)
 
 [desktop/a11y]
@@ -95,7 +95,7 @@ toolkit-accessibility=false
 
 [desktop/notifications]
 application-children=['google-chrome', 'org-gnome-tweaks']
-show-banners=true
+show-banners=false
 
 [desktop/notifications/application/google-chrome]
 application-id='google-chrome.desktop'
@@ -338,13 +338,11 @@ window-gap-size=uint32 2
 window-gap-size-increment=uint32 2
 
 [shell/extensions/forge/keybindings]
-con-split-horizontal=['<Super>z']
 con-split-layout-toggle=['<Super>g']
 con-split-vertical=['<Super>v']
 con-stacked-layout-toggle=['<Shift><Super>s']
 con-tabbed-layout-toggle=['<Shift><Super>t']
 con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
-focus-border-toggle=['<Super>x']
 mod-mask-mouse-tile='None'
 prefs-tiling-toggle=['<Super>w']
 window-focus-down=['<Super>j']
@@ -474,7 +472,7 @@ activate-after-ms=uint32 0
 activate-immediately=false
 fade-enable=false
 icon-size=uint32 23
-launcher-stats='{"org.gnome.Calendar.desktop":1,"code.desktop":1,"firefox_firefox.desktop":1,"Alacritty.desktop":1}'
+launcher-stats='{"org.gnome.Calendar.desktop":1,"code.desktop":1,"firefox_firefox.desktop":1,"Alacritty.desktop":1,"sticky.desktop":1}'
 max-width-percentage=uint32 50
 on-active-display=false
 only-current-workspace=false
