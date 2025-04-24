@@ -465,8 +465,15 @@ open-menu=@as []
 version=33
 
 [shell/extensions/switcher]
+activate-after-ms=uint32 0
+activate-immediately=false
+fade-enable=false
 icon-size=uint32 23
-launcher-stats='{"org.gnome.Calendar.desktop":1,"code.desktop":1,"firefox_firefox.desktop":1}'
+launcher-stats='{"org.gnome.Calendar.desktop":1,"code.desktop":1,"firefox_firefox.desktop":1,"Alacritty.desktop":1}'
+max-width-percentage=uint32 50
+on-active-display=false
+only-current-workspace=false
+show-executables=false
 show-switcher=['<Super>Space']
 workspace-indicator=true
 
