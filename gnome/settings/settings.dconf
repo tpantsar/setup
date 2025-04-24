@@ -10,7 +10,7 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(1285, 5)
+window-position=(1079, 289)
 word-size=64
 
 [control-center]
@@ -247,9 +247,11 @@ maximized=false
 night-light-enabled=false
 
 [settings-daemon/plugins/media-keys]
-control-center=['<Control>comma']
+calculator=['<Super>g']
+control-center=['<Super>comma']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 home=['<Super>e']
+www=['<Super>b']
 
 [settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>d'
