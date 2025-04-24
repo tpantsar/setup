@@ -14,7 +14,7 @@ window-position=(1285, 5)
 word-size=64
 
 [control-center]
-last-panel='system'
+last-panel='keyboard'
 window-state=(980, 640, true)
 
 [desktop/a11y]
@@ -64,6 +64,7 @@ xkb-options=['caps:escape', 'grp:win_space_toggle', 'terminate:ctrl_alt_bksp']
 can-change-accels=false
 clock-show-date=false
 clock-show-seconds=false
+color-scheme='default'
 cursor-blink=true
 cursor-blink-time=1200
 cursor-blink-timeout=10
