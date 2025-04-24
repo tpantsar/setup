@@ -10,7 +10,7 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(1079, 289)
+window-position=(1283, 0)
 word-size=64
 
 [control-center]
@@ -136,6 +136,7 @@ theme-name='LinuxMint'
 
 [desktop/wm/keybindings]
 close=['<Super>c']
+maximize=@as []
 move-to-workspace-1=['<Super><Shift>1']
 move-to-workspace-10=['<Super><Shift>0']
 move-to-workspace-2=['<Super><Shift>2']
@@ -164,6 +165,7 @@ switch-to-workspace-left=['<Super>z']
 switch-to-workspace-right=['<Super>x']
 switch-windows=['<Alt>Tab']
 switch-windows-backward=['<Shift><Alt>Tab']
+unmaximize=@as []
 
 [desktop/wm/preferences]
 action-double-click-titlebar='toggle-maximize'
@@ -210,8 +212,8 @@ window-width=600
 bottom-panel-size=140
 side-panel-active-page='GeditWindowDocumentsPanel'
 side-panel-size=200
-size=(1262, 1339)
-state=128
+size=(1277, 1358)
+state=87168
 
 [gnome-system-monitor]
 maximized=false
@@ -226,6 +228,11 @@ col-6-width=0
 
 [mutter]
 dynamic-workspaces=false
+edge-tiling=false
+
+[mutter/keybindings]
+toggle-tiled-left=@as []
+toggle-tiled-right=@as []
 
 [nautilus/icon-view]
 default-zoom-level='small'
@@ -272,7 +279,7 @@ overrides=@a{sv} {}
 command-history=['kitty']
 disable-user-extensions=false
 disabled-extensions=['forge@jmmaranan.com']
-enabled-extensions=['tactile@lundal.io', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'space-bar@luchrioh', 'undecorate@sun.wxg@gmail.com', 'tophat@fflewddur.github.io', 'switcher@landau.fi', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['tactile@lundal.io', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'space-bar@luchrioh', 'undecorate@sun.wxg@gmail.com', 'tophat@fflewddur.github.io', 'switcher@landau.fi', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'tilingshell@ferrarodomenico.com']
 favorite-apps=['org.gnome.Evolution.desktop', 'libreoffice-writer.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop', 'google-chrome.desktop']
 welcome-dialog-last-shown-version='46.0'
 
@@ -344,11 +351,13 @@ window-gap-size=uint32 2
 window-gap-size-increment=uint32 2
 
 [shell/extensions/forge/keybindings]
+con-split-horizontal=['<Super>z']
 con-split-layout-toggle=['<Super>g']
 con-split-vertical=['<Super>v']
 con-stacked-layout-toggle=['<Shift><Super>s']
 con-tabbed-layout-toggle=['<Shift><Super>t']
 con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
+focus-border-toggle=['<Super>x']
 mod-mask-mouse-tile='None'
 prefs-tiling-toggle=['<Super>w']
 window-focus-down=['<Super>j']
@@ -379,6 +388,8 @@ window-swap-last-active=['<Super>Return']
 window-swap-left=['<Control><Super>h']
 window-swap-right=['<Control><Super>l']
 window-swap-up=['<Control><Super>k']
+window-toggle-always-float=['<Shift><Super>c']
+window-toggle-float=['<Super>c']
 workspace-active-tile-toggle=['<Shift><Super>w']
 
 [shell/extensions/just-perfection]
@@ -505,12 +516,19 @@ tiling-popup-all-workspace=true
 
 [shell/extensions/tilingshell]
 enable-autotiling=true
-enable-window-border=true
-last-version-name-installed='16.1'
-layouts-json='[{"id":"Layout 1","tiles":[{"x":0,"y":0,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0,"y":0.5,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[2,3]},{"x":0.78,"y":0,"width":0.22,"height":0.5,"groups":[3,4]},{"x":0.78,"y":0.5,"width":0.22,"height":0.5,"groups":[3,4]}]},{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.22,"height":1,"groups":[1]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[1,2]},{"x":0.78,"y":0,"width":0.22,"height":1,"groups":[2]}]},{"id":"Layout 3","tiles":[{"x":0,"y":0,"width":0.33,"height":1,"groups":[1]},{"x":0.33,"y":0,"width":0.67,"height":1,"groups":[1]}]},{"id":"Layout 4","tiles":[{"x":0,"y":0,"width":0.67,"height":1,"groups":[1]},{"x":0.67,"y":0,"width":0.33,"height":1,"groups":[1]}]}]'
-move-window-right=['']
-overridden-settings='{}'
-selected-layouts=[['Layout 1'], ['Layout 1'], ['Layout 1'], ['Layout 1'], ['Layout 1'], ['Layout 1']]
+enable-smart-window-border-radius=true
+enable-window-border=false
+inner-gaps=uint32 6
+last-version-name-installed='16.3'
+layouts-json='[{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.5,"height":1,"groups":[1]},{"x":0.5,"y":0,"width":0.5000000000000003,"height":1,"groups":[1]}]},{"id":"Layout 3","tiles":[{"x":0,"y":0,"width":1,"height":1,"groups":[]}]},{"id":"Layout 4","tiles":[{"x":0,"y":0,"width":0.67,"height":1,"groups":[1]},{"x":0.67,"y":0,"width":0.33,"height":1,"groups":[1]}]},{"id":"9064886","tiles":[{"x":0,"y":0,"width":0.26015625,"height":1,"groups":[2]},{"x":0.73984375,"y":0,"width":0.26015625,"height":1,"groups":[1]},{"x":0.26015625,"y":0,"width":0.47968750000000004,"height":1,"groups":[1,2]}]}]'
+move-window-right=['<Super>Right']
+outer-gaps=uint32 0
+overridden-settings="{\"org.gnome.mutter.keybindings\":{\"toggle-tiled-right\":\"['<Super>Right']\",\"toggle-tiled-left\":\"['<Super>Left']\"},\"org.gnome.desktop.wm.keybindings\":{\"maximize\":\"['<Super>Up']\",\"unmaximize\":\"['<Super>Down', '<Alt>F5']\"},\"org.gnome.mutter\":{\"edge-tiling\":\"true\"}}"
+resize-complementing-windows=true
+selected-layouts=[['Layout 3', 'Layout 3'], ['Layout 1', 'Layout 2'], ['Layout 1', 'Layout 2'], ['Layout 2', 'Layout 2'], ['Layout 1', 'Layout 2'], ['Layout 1', 'Layout 2']]
+show-indicator=true
+snap-assistant-animation-time=uint32 0
+tile-preview-animation-time=uint32 0
 window-border-width=uint32 1
 
 [shell/extensions/tophat]
