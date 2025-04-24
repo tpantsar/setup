@@ -59,17 +59,19 @@ check-x11wayland=true
 css-last-update=uint32 37
 focus-border-toggle=true
 move-pointer-focus-enabled=true
+tiling-mode-enabled=true
+window-gap-hidden-on-single=true
 window-gap-size=uint32 2
 window-gap-size-increment=uint32 2
 
 [forge/keybindings]
-con-split-horizontal=['<Super>z']
+con-split-horizontal=@as []
 con-split-layout-toggle=['<Super>g']
 con-split-vertical=['<Super>v']
 con-stacked-layout-toggle=['<Shift><Super>s']
 con-tabbed-layout-toggle=['<Shift><Super>t']
 con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
-focus-border-toggle=['<Super>x']
+focus-border-toggle=@as []
 mod-mask-mouse-tile='None'
 prefs-tiling-toggle=['<Super>w']
 window-focus-down=['<Super>j']
@@ -218,6 +220,7 @@ gap-size=4
 row-0=1
 row-1=1
 row-2=0
+show-tiles=['<Super>w']
 
 [tiling-assistant]
 activate-layout0=@as []
@@ -237,7 +240,6 @@ enable-tiling-popup=false
 import-layout-examples=false
 last-version-installed=48
 move-favorite-layout-mod=0
-overridden-settings={'org.gnome.mutter.edge-tiling': <true>, 'org.gnome.desktop.wm.keybindings.maximize': <['<Super>Up']>, 'org.gnome.desktop.wm.keybindings.unmaximize': <['<Super>Down', '<Alt>F5']>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <['<Super>Left']>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <['<Super>Right']>}
 restore-window=['<Super>Down']
 search-popup-layout=@as []
 single-screen-gap=0
