@@ -133,6 +133,7 @@ show-apps-button=false
 startup-status=0
 support-notifier-showed-version=34
 support-notifier-type=0
+switcher-popup-delay=false
 theme=false
 top-panel-position=1
 type-to-search=true

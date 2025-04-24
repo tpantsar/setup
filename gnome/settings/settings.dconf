@@ -14,7 +14,7 @@ window-position=(1285, 5)
 word-size=64
 
 [control-center]
-last-panel='keyboard'
+last-panel='system'
 window-state=(980, 640, true)
 
 [desktop/a11y]
@@ -406,6 +406,7 @@ show-apps-button=false
 startup-status=0
 support-notifier-showed-version=34
 support-notifier-type=0
+switcher-popup-delay=false
 theme=false
 top-panel-position=1
 type-to-search=true
