@@ -1,6 +1,9 @@
 [alphabetical-app-grid]
 folder-order-position='end'
 
+[auto-move-windows]
+application-list=['kitty.desktop:1', 'google-chrome.desktop:2', 'firefox.desktop:2', 'Alacritty.desktop:1', 'code.desktop:3', 'org.gnome.Settings.desktop:4', 'com.mattjakeman.ExtensionManager.desktop:5']
+
 [blur-my-shell]
 settings-version=2
 
@@ -97,6 +100,8 @@ window-swap-last-active=['<Super>Return']
 window-swap-left=['<Control><Super>h']
 window-swap-right=['<Control><Super>l']
 window-swap-up=['<Control><Super>k']
+window-toggle-always-float=['<Shift><Super>c']
+window-toggle-float=['<Super>c']
 workspace-active-tile-toggle=['<Shift><Super>w']
 
 [just-perfection]
@@ -196,7 +201,7 @@ activate-after-ms=uint32 0
 activate-immediately=false
 fade-enable=false
 icon-size=uint32 23
-launcher-stats='{"org.gnome.Calendar.desktop":1,"code.desktop":1,"firefox_firefox.desktop":1,"Alacritty.desktop":1}'
+launcher-stats='{"org.gnome.Calendar.desktop":1,"code.desktop":1,"firefox_firefox.desktop":1,"Alacritty.desktop":1,"sticky.desktop":1}'
 max-width-percentage=uint32 50
 on-active-display=false
 only-current-workspace=false
