@@ -1,5 +1,5 @@
 [keybindings]
-close=['<Super>c']
+close=['<Super>q']
 maximize=@as []
 move-to-workspace-1=['<Super><Shift>1']
 move-to-workspace-10=['<Super><Shift>0']
