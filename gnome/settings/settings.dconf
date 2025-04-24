@@ -26,8 +26,8 @@ window-position=(1283, 6)
 word-size=64
 
 [control-center]
-last-panel='keyboard'
-window-state=(980, 640, true)
+last-panel='network'
+window-state=(2560, 1405, false)
 
 [desktop/a11y]
 always-show-text-caret=false
@@ -369,12 +369,13 @@ check-x11wayland=true
 
 [shell/extensions/forge]
 css-last-update=uint32 37
-css-updated='1745494036537'
-focus-border-toggle=true
+css-updated='1745494359280'
+focus-border-toggle=false
 move-pointer-focus-enabled=true
+preview-hint-enabled=false
 tiling-mode-enabled=true
 window-gap-hidden-on-single=true
-window-gap-size=uint32 5
+window-gap-size=uint32 4
 window-gap-size-increment=uint32 1
 
 [shell/extensions/forge/keybindings]
@@ -386,6 +387,7 @@ con-tabbed-layout-toggle=['<Shift><Super>t']
 con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
 focus-border-toggle=@as []
 mod-mask-mouse-tile='None'
+prefs-open=@as []
 prefs-tiling-toggle=['<Super>w']
 window-focus-down=['<Super>j']
 window-focus-left=['<Super>h']
