@@ -6,6 +6,7 @@ calculator=['<Super>g']
 control-center=['<Super>comma']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 home=['<Super>e']
+screensaver=['<Control><Alt>l']
 www=['<Super>b']
 
 [plugins/media-keys/custom-keybindings/custom0]

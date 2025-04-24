@@ -26,7 +26,7 @@ window-position=(1283, 6)
 word-size=64
 
 [control-center]
-last-panel='keyboard'
+last-panel='search'
 window-state=(980, 640, true)
 
 [desktop/a11y]
@@ -144,6 +144,9 @@ remove-old-trash-files=false
 [desktop/search-providers]
 disable-external=false
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[desktop/session]
+idle-delay=uint32 300
 
 [desktop/sound]
 event-sounds=false
@@ -274,6 +277,7 @@ calculator=['<Super>g']
 control-center=['<Super>comma']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 home=['<Super>e']
+screensaver=['<Control><Alt>l']
 www=['<Super>b']
 
 [settings-daemon/plugins/media-keys/custom-keybindings/custom0]
@@ -294,8 +298,8 @@ overrides=@a{sv} {}
 [shell]
 command-history=['kitty']
 disable-user-extensions=false
-disabled-extensions=['forge@jmmaranan.com']
-enabled-extensions=['tactile@lundal.io', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'space-bar@luchrioh', 'undecorate@sun.wxg@gmail.com', 'tophat@fflewddur.github.io', 'switcher@landau.fi', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'tilingshell@ferrarodomenico.com']
+disabled-extensions=['forge@jmmaranan.com', 'tilingshell@ferrarodomenico.com']
+enabled-extensions=['tactile@lundal.io', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'space-bar@luchrioh', 'undecorate@sun.wxg@gmail.com', 'tophat@fflewddur.github.io', 'switcher@landau.fi', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'tiling-assistant@leleat-on-github']
 favorite-apps=['org.gnome.Evolution.desktop', 'libreoffice-writer.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop', 'google-chrome.desktop']
 welcome-dialog-last-shown-version='46.0'
 
@@ -524,11 +528,51 @@ row-1=1
 row-2=0
 
 [shell/extensions/tiling-assistant]
+activate-layout0=@as []
+activate-layout1=@as []
+activate-layout2=@as []
+activate-layout3=@as []
+active-window-hint=1
 active-window-hint-color='rgb(211,70,21)'
+auto-tile=@as []
+center-window=@as []
+debugging-free-rects=@as []
+debugging-show-tiled-rects=@as []
+default-move-mode=0
 disable-tile-groups=true
+dynamic-keybinding-behavior=2
 enable-tiling-popup=false
+import-layout-examples=false
 last-version-installed=48
+move-favorite-layout-mod=0
+overridden-settings={'org.gnome.mutter.edge-tiling': <true>, 'org.gnome.desktop.wm.keybindings.maximize': <['<Super>Up']>, 'org.gnome.desktop.wm.keybindings.unmaximize': <['<Super>Down', '<Alt>F5']>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <['<Super>Left']>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <['<Super>Right']>}
+restore-window=['<Super>Down']
+search-popup-layout=@as []
+single-screen-gap=0
+tile-bottom-half=['<Super>KP_2']
+tile-bottom-half-ignore-ta=@as []
+tile-bottomleft-quarter=['<Super>KP_1']
+tile-bottomleft-quarter-ignore-ta=@as []
+tile-bottomright-quarter=['<Super>KP_3']
+tile-bottomright-quarter-ignore-ta=@as []
+tile-edit-mode=['<Super>q']
+tile-left-half=['<Super>Left', '<Super>KP_4']
+tile-left-half-ignore-ta=@as []
+tile-maximize=['<Super>Up', '<Super>KP_5']
+tile-maximize-horizontally=@as []
+tile-maximize-vertically=@as []
+tile-right-half=['<Super>Right', '<Super>KP_6']
+tile-right-half-ignore-ta=@as []
+tile-top-half=['<Super>KP_8']
+tile-top-half-ignore-ta=@as []
+tile-topleft-quarter=@as []
+tile-topleft-quarter-ignore-ta=@as []
+tile-topright-quarter=['<Super>KP_9']
+tile-topright-quarter-ignore-ta=@as []
 tiling-popup-all-workspace=true
+toggle-always-on-top=@as []
+toggle-tiling-popup=@as []
+window-gap=4
 
 [shell/extensions/tilingshell]
 active-screen-edges=true
@@ -540,7 +584,7 @@ last-version-name-installed='16.3'
 layouts-json='[{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.5,"height":1,"groups":[1]},{"x":0.5,"y":0,"width":0.5000000000000003,"height":1,"groups":[1]}]},{"id":"Layout 3","tiles":[{"x":0,"y":0,"width":1,"height":1,"groups":[]}]},{"id":"Layout 4","tiles":[{"x":0,"y":0,"width":0.67,"height":1,"groups":[1]},{"x":0.67,"y":0,"width":0.33,"height":1,"groups":[1]}]},{"id":"9064886","tiles":[{"x":0,"y":0,"width":0.26015625,"height":1,"groups":[2]},{"x":0.73984375,"y":0,"width":0.26015625,"height":1,"groups":[1]},{"x":0.26015625,"y":0,"width":0.47968750000000004,"height":1,"groups":[1,2]}]}]'
 move-window-right=['<Super>Right']
 outer-gaps=uint32 6
-overridden-settings="{\"org.gnome.mutter.keybindings\":{\"toggle-tiled-right\":\"['<Super>Right']\",\"toggle-tiled-left\":\"['<Super>Left']\"},\"org.gnome.desktop.wm.keybindings\":{\"maximize\":\"['<Super>Up']\",\"unmaximize\":\"['<Super>Down', '<Alt>F5']\"},\"org.gnome.mutter\":{\"edge-tiling\":\"true\"}}"
+overridden-settings='{}'
 quarter-tiling-threshold=uint32 50
 resize-complementing-windows=true
 selected-layouts=[['Layout 3', 'Layout 2'], ['Layout 2', 'Layout 2'], ['Layout 3', 'Layout 2'], ['Layout 2', 'Layout 2'], ['Layout 2', 'Layout 2'], ['Layout 3', 'Layout 3']]
