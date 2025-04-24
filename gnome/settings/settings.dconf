@@ -1,3 +1,6 @@
+[Four-in-a-row]
+first-player='computer'
+
 [calculator]
 accuracy=9
 angle-units='degrees'
@@ -14,7 +17,7 @@ window-position=(1283, 6)
 word-size=64
 
 [control-center]
-last-panel='notifications'
+last-panel='keyboard'
 window-state=(980, 640, true)
 
 [desktop/a11y]
@@ -128,6 +131,10 @@ recent-files-max-age=7
 remember-recent-files=true
 remove-old-temp-files=false
 remove-old-trash-files=false
+
+[desktop/search-providers]
+disable-external=false
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [desktop/sound]
 event-sounds=false
@@ -411,7 +418,7 @@ events-button=true
 keyboard-layout=true
 max-displayed-search-results=0
 osd=true
-overlay-key=true
+overlay-key=false
 panel=true
 panel-button-padding-size=0
 panel-icon-size=16
