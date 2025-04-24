@@ -2,12 +2,19 @@
 night-light-enabled=false
 
 [plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+control-center=['<Control>comma']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+home=['<Super>e']
 
 [plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>d'
 command='rofi -show drun'
-name='Rofi launcher'
+name='Launch rofi'
+
+[plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>Return'
+command='kitty'
+name='Launch kitty'
 
 [plugins/xsettings]
 disabled-gtk-modules=@as []
