@@ -2,11 +2,19 @@
 # This script installs custom packages and tools for system setup.
 
 # Install oh-my-zsh - https://ohmyz.sh/#basic-installation
-if ! command -v omz &> /dev/null; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing oh-my-zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
   echo "oh-my-zsh is already installed"
+fi
+
+# Install zoxide - https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation
+if ! command -v zoxide &> /dev/null; then
+  echo "Installing zoxide..."
+  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+else
+  echo "zoxide is already installed"
 fi
 
 # Install tmuxifier - https://github.com/jimeh/tmuxifier
