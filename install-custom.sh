@@ -1,6 +1,14 @@
 #!/bin/bash
 # This script installs custom packages and tools for system setup.
 
+# Install oh-my-zsh - https://ohmyz.sh/#basic-installation
+if ! command -v omz &> /dev/null; then
+  echo "Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo "oh-my-zsh is already installed"
+fi
+
 # Install kitty - https://sw.kovidgoyal.net/kitty/binary/
 if ! command -v kitty &> /dev/null; then
   echo "Installing kitty..."
