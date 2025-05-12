@@ -1,9 +1,7 @@
 #!/bin/bash
 
 FLATPAKS=(
-  "spotify"
   "discord"
-  "chrome"
 )
 
 for pak in "${FLATPAKS[@]}"; do
