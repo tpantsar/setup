@@ -1,6 +1,14 @@
 #!/bin/bash
 # This script installs custom packages and tools for system setup.
 
+# Install kitty - https://sw.kovidgoyal.net/kitty/binary/
+if ! command -v kitty &> /dev/null; then
+  echo "Installing kitty..."
+  curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+else
+  echo "kitty is already installed"
+fi
+
 # Install lazygit - https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
 if ! command -v lazygit &> /dev/null; then
   echo "Installing lazygit..."
