@@ -18,7 +18,6 @@ else
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 fi
 
-echo "TPM installed successfully!"
 echo "Now opening tmux session and installing plugins..."
 
 tmux new-session -d -s tpm_install_session

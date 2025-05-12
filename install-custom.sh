@@ -9,6 +9,15 @@ else
   echo "oh-my-zsh is already installed"
 fi
 
+# Install tmuxifier - https://github.com/jimeh/tmuxifier
+if ! command -v tmuxifier &>/dev/null; then
+  echo "tmuxifier is not installed. Installing..."
+  git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+  echo "tmuxifier installed successfully!"
+else
+  echo "tmuxifier is already installed."
+fi
+
 # Install kitty - https://sw.kovidgoyal.net/kitty/binary/
 if ! command -v kitty &> /dev/null; then
   echo "Installing kitty..."
