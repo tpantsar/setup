@@ -5,7 +5,9 @@ night-light-enabled=false
 calculator=['<Super>g']
 control-center=['<Super>comma']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+decrease-text-size=['<Primary><Shift>underscore']
 home=['<Super>e']
+increase-text-size=['<Primary><Shift>question']
 screensaver=['<Control><Alt>l']
 www=['<Super>b']
 

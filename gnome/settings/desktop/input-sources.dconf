@@ -1,5 +1,6 @@
 [/]
 current=uint32 0
+per-window=false
 show-all-sources=false
 sources=[('xkb', 'fi+winkeys')]
 xkb-options=['caps:escape', 'grp:win_space_toggle', 'terminate:ctrl_alt_bksp']

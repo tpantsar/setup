@@ -52,8 +52,21 @@ blur=false
 brightness=0.59999999999999998
 sigma=30
 
+[dash-to-dock]
+dash-max-icon-size=42
+dock-fixed=true
+dock-position='BOTTOM'
+extend-height=true
+isolate-workspaces=true
+multi-monitor=false
+show-mounts=true
+show-mounts-network=true
+show-mounts-only-mounted=false
+show-trash=true
+
 [ding]
 check-x11wayland=true
+icon-size='standard'
 
 [forge]
 css-last-update=uint32 37
