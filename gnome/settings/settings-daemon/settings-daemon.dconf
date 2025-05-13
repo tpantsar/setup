@@ -3,13 +3,13 @@ night-light-enabled=false
 
 [plugins/media-keys]
 calculator=['<Super>g']
-control-center=['<Super>comma']
+control-center=['<Primary><Shift>semicolon']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-decrease-text-size=['<Shift>underscore']
+decrease-text-size=['<Primary><Alt>minus']
 home=['<Super>e']
-increase-text-size=['<Shift>question']
+increase-text-size=['<Primary><Alt>plus']
 screensaver=['<Control><Alt>l']
-www=['<Super>b']
+www=['<Primary><Shift>b']
 
 [plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>d'
