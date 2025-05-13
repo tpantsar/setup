@@ -67,6 +67,7 @@ show-trash=true
 [ding]
 check-x11wayland=true
 icon-size='standard'
+start-corner='top-left'
 
 [forge]
 css-last-update=uint32 37
