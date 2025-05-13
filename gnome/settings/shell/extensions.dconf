@@ -2,7 +2,7 @@
 folder-order-position='end'
 
 [auto-move-windows]
-application-list=['kitty.desktop:1', 'google-chrome.desktop:2', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:5', 'org.gnome.tweaks.desktop:6', 'org.gnome.Evolution.desktop:5', 'gnome-control-center.desktop:6']
+application-list=['kitty.desktop:1', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:5', 'org.gnome.tweaks.desktop:6', 'org.gnome.Evolution.desktop:5', 'gnome-control-center.desktop:6', 'firefox_firefox.desktop:2', 'google-chrome.desktop:2', 'com.google.Chrome.desktop:2']
 
 [blur-my-shell]
 settings-version=2
@@ -85,7 +85,7 @@ app-shift-hotkey-8=@as []
 app-shift-hotkey-9=@as []
 dash-max-icon-size=42
 dock-fixed=true
-dock-position='BOTTOM'
+dock-position='LEFT'
 extend-height=true
 isolate-workspaces=true
 multi-monitor=false
