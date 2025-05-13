@@ -2,7 +2,7 @@
 folder-order-position='end'
 
 [auto-move-windows]
-application-list=['kitty.desktop:1', 'google-chrome.desktop:2', 'firefox.desktop:2', 'Alacritty.desktop:1', 'code.desktop:3', 'org.gnome.Settings.desktop:4', 'com.mattjakeman.ExtensionManager.desktop:5', 'org.gnome.tweaks.desktop:6']
+application-list=['kitty.desktop:1', 'google-chrome.desktop:2', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:5', 'org.gnome.tweaks.desktop:6', 'org.gnome.Evolution.desktop:5', 'gnome-control-center.desktop:6']
 
 [blur-my-shell]
 settings-version=2
@@ -53,6 +53,36 @@ brightness=0.59999999999999998
 sigma=30
 
 [dash-to-dock]
+app-ctrl-hotkey-1=@as []
+app-ctrl-hotkey-10=@as []
+app-ctrl-hotkey-2=@as []
+app-ctrl-hotkey-3=@as []
+app-ctrl-hotkey-4=@as []
+app-ctrl-hotkey-5=@as []
+app-ctrl-hotkey-6=@as []
+app-ctrl-hotkey-7=@as []
+app-ctrl-hotkey-8=@as []
+app-ctrl-hotkey-9=@as []
+app-hotkey-1=@as []
+app-hotkey-10=@as []
+app-hotkey-2=@as []
+app-hotkey-3=@as []
+app-hotkey-4=@as []
+app-hotkey-5=@as []
+app-hotkey-6=@as []
+app-hotkey-7=@as []
+app-hotkey-8=@as []
+app-hotkey-9=@as []
+app-shift-hotkey-1=@as []
+app-shift-hotkey-10=@as []
+app-shift-hotkey-2=@as []
+app-shift-hotkey-3=@as []
+app-shift-hotkey-4=@as []
+app-shift-hotkey-5=@as []
+app-shift-hotkey-6=@as []
+app-shift-hotkey-7=@as []
+app-shift-hotkey-8=@as []
+app-shift-hotkey-9=@as []
 dash-max-icon-size=42
 dock-fixed=true
 dock-position='BOTTOM'
