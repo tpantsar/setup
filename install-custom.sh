@@ -1,6 +1,23 @@
 #!/bin/bash
 # This script installs custom packages and tools for system setup.
 
+# Neovim build - https://github.com/neovim/neovim/blob/master/BUILD.md
+if ! command -v nvim &> /dev/null; then
+  echo "Building and installing Neovim from source" 
+  git clone --depth=1 https://github.com/neovim/neovim ~/neovim
+  cd ~/neovim
+
+  # Install stable release
+  make CMAKE_BUILD_TYPE=Release
+
+  # verify the build type after compilation
+  ./build/bin/nvim --version | grep ^Build
+
+  sudo make install
+else
+  echo "neovim is already installed"
+fi
+
 # Install oh-my-zsh - https://ohmyz.sh/#basic-installation
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing oh-my-zsh..."
