@@ -18,6 +18,10 @@ else
   echo "neovim is already installed"
 fi
 
+# bat -> batcat symlink
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 # Install oh-my-zsh - https://ohmyz.sh/#basic-installation
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing oh-my-zsh..."
