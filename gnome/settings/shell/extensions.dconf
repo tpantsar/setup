@@ -2,7 +2,7 @@
 folder-order-position='end'
 
 [auto-move-windows]
-application-list=['kitty.desktop:1', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:5', 'org.gnome.tweaks.desktop:6', 'org.gnome.Evolution.desktop:5', 'gnome-control-center.desktop:6', 'firefox_firefox.desktop:2', 'google-chrome.desktop:2', 'com.google.Chrome.desktop:2']
+application-list=['kitty.desktop:1', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:7', 'org.gnome.tweaks.desktop:8', 'org.gnome.Evolution.desktop:6', 'gnome-control-center.desktop:5', 'firefox_firefox.desktop:2', 'google-chrome.desktop:2', 'com.google.Chrome.desktop:2']
 
 [blur-my-shell]
 settings-version=2
