@@ -41,7 +41,7 @@ fi
 # Install tmuxifier - https://github.com/jimeh/tmuxifier
 if ! command -v tmuxifier &>/dev/null; then
   echo "tmuxifier is not installed. Installing..."
-  git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+  git clone --depth=1 https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
   echo "tmuxifier installed successfully!"
 else
   echo "tmuxifier is already installed."
