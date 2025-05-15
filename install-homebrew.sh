@@ -20,6 +20,14 @@ else
   echo "sesh is already installed"
 fi
 
+# Install gum
+if ! command -v gum &> /dev/null; then
+  echo "Installing gum ..."
+  brew install gum
+else
+  echo "gum is already installed"
+fi
+
 # Install lf (terminal file manager)
 # https://github.com/gokcehan/lf
 if ! command -v lf &> /dev/null; then
