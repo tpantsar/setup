@@ -73,3 +73,14 @@ if ! command -v starship &> /dev/null; then
 else
   echo "starship is already installed"
 fi
+
+# i3 window manager
+if ! command -v i3 &> /dev/null; then
+  echo "Installing i3 from source ..."
+  git clone --depth=1 --branch stable --single-branch https://github.com/i3/i3.git ~/i3
+  cd ~/i3
+  git checkout stable
+else
+  echo "i3 is already installed"
+fi
+
