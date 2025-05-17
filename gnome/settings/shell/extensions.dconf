@@ -2,7 +2,7 @@
 folder-order-position='end'
 
 [auto-move-windows]
-application-list=['kitty.desktop:1', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:7', 'org.gnome.tweaks.desktop:8', 'org.gnome.Evolution.desktop:6', 'gnome-control-center.desktop:5', 'firefox_firefox.desktop:2', 'google-chrome.desktop:2', 'com.google.Chrome.desktop:2']
+application-list=['kitty.desktop:1', 'firefox.desktop:2', 'code.desktop:3', 'com.mattjakeman.ExtensionManager.desktop:8', 'org.gnome.tweaks.desktop:8', 'org.gnome.Evolution.desktop:6', 'google-chrome.desktop:2', 'com.google.Chrome.desktop:2', 'Alacritty.desktop:4', 'org.gnome.Settings.desktop:8']
 
 [blur-my-shell]
 settings-version=2
@@ -83,12 +83,18 @@ app-shift-hotkey-6=@as []
 app-shift-hotkey-7=@as []
 app-shift-hotkey-8=@as []
 app-shift-hotkey-9=@as []
+background-opacity=1.0
+custom-theme-shrink=false
 dash-max-icon-size=42
+disable-overview-on-startup=false
 dock-fixed=true
 dock-position='LEFT'
 extend-height=true
+height-fraction=0.9
 isolate-workspaces=false
 multi-monitor=false
+preferred-monitor=-2
+preferred-monitor-by-connector='eDP-1'
 show-mounts=true
 show-mounts-network=true
 show-mounts-only-mounted=false
@@ -105,10 +111,13 @@ css-updated='1745494359280'
 focus-border-toggle=false
 move-pointer-focus-enabled=true
 preview-hint-enabled=false
+stacked-tiling-mode-enabled=true
+tabbed-tiling-mode-enabled=true
 tiling-mode-enabled=true
 window-gap-hidden-on-single=true
 window-gap-size=uint32 4
 window-gap-size-increment=uint32 1
+workspace-skip-tile='0'
 
 [forge/keybindings]
 con-split-horizontal=@as []
@@ -149,6 +158,8 @@ window-swap-last-active=['<Super>Return']
 window-swap-left=['<Control><Super>h']
 window-swap-right=['<Control><Super>l']
 window-swap-up=['<Control><Super>k']
+window-toggle-always-float=['<Shift><Super>c']
+window-toggle-float=['<Super>c']
 workspace-active-tile-toggle=['<Shift><Super>w']
 
 [just-perfection]
@@ -161,6 +172,7 @@ app-menu-label=true
 background-menu=true
 calendar=true
 clock-menu=true
+clock-menu-position=1
 clock-menu-position-offset=0
 controls-manager-spacing-size=0
 dash=false
@@ -169,6 +181,7 @@ dash-icon-size=16
 dash-separator=false
 double-super-to-appgrid=true
 events-button=true
+invert-calendar-column-items=false
 keyboard-layout=true
 max-displayed-search-results=0
 osd=true
@@ -220,27 +233,36 @@ active-workspace-padding-h=8
 active-workspace-padding-v=4
 active-workspace-text-color='rgb(0,0,0)'
 application-styles='.space-bar {\n  -natural-hpadding: 12px;\n}\n\n.space-bar-workspace-label.active {\n  margin: 0 4px;\n  background-color: rgb(87,227,137);\n  color: rgb(0,0,0);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 3px;\n  padding: 4px 8px;\n  font-size: 12pt;\n}\n\n.space-bar-workspace-label.inactive {\n  margin: 0 4px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(255,255,255,1);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 3px;\n  padding: 4px 8px;\n  font-size: 12pt;\n}\n\n.space-bar-workspace-label.inactive.empty {\n  margin: 0 4px;\n  background-color: rgba(0,0,0,0);\n  color: rgb(255,190,111);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 3px;\n  padding: 4px 8px;\n  font-size: 12pt;\n}'
+custom-styles-enabled=false
+custom-styles-failed=false
 empty-workspace-border-radius=3
 empty-workspace-border-width=3
 empty-workspace-font-size=12
+empty-workspace-font-size-active=false
 empty-workspace-padding-h=8
 empty-workspace-padding-v=4
 empty-workspace-text-color='rgb(246,97,81)'
 inactive-workspace-border-radius=3
 inactive-workspace-border-width=3
 inactive-workspace-font-size=12
+inactive-workspace-font-size-active=true
 inactive-workspace-padding-h=8
 inactive-workspace-padding-v=4
+inactive-workspace-text-color='rgb(145,65,172)'
+workspaces-bar-padding=12
 
 [space-bar/behavior]
 always-show-numbers=false
 indicator-style='workspaces-bar'
 position='left'
+position-index=1
 show-empty-workspaces=true
 smart-workspace-names=false
+system-workspace-indicator=false
 toggle-overview=true
 
 [space-bar/shortcuts]
+back-and-forth=false
 enable-activate-workspace-shortcuts=false
 enable-move-to-workspace-shortcuts=true
 open-menu=@as []
@@ -268,6 +290,12 @@ col-1=1
 col-2=1
 col-3=2
 gap-size=4
+layout-1=['1']
+layout-2-col-0=1
+layout-2-col-1=1
+layout-2-col-2=1
+layout-2-col-3=1
+monitor-0-layout=1
 row-0=1
 row-1=1
 row-2=0
@@ -348,3 +376,11 @@ show-cpu=true
 show-disk=true
 show-icons=false
 show-mem=true
+
+[user-theme]
+name=''
+
+[window-list]
+display-all-workspaces=false
+grouping-mode='never'
+show-on-all-monitors=false

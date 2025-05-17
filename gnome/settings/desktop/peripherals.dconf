@@ -1,5 +1,7 @@
 [keyboard]
 delay=uint32 200
+numlock-state=false
+repeat=true
 repeat-interval=uint32 15
 
 [mouse]
@@ -12,4 +14,5 @@ natural-scroll=false
 speed=0.0
 
 [touchpad]
+speed=0.14716981132075468
 two-finger-scrolling-enabled=true
