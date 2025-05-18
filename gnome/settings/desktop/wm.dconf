@@ -1,7 +1,7 @@
 [keybindings]
 begin-resize=['<Super>r']
 close=['<Super>q']
-maximize=['<Super>Up']
+maximize=@as []
 minimize=@as []
 move-to-workspace-1=['<Super><Shift>1']
 move-to-workspace-10=['<Super><Shift>0']
@@ -35,7 +35,7 @@ switch-to-workspace-right=['<Super>x']
 switch-windows=['<Alt>Tab']
 switch-windows-backward=['<Shift><Alt>Tab']
 toggle-fullscreen=['<Super>f']
-unmaximize=['<Super>Down', '<Alt>F5']
+unmaximize=@as []
 
 [preferences]
 action-double-click-titlebar='toggle-maximize'

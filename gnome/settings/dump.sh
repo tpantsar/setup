@@ -13,10 +13,12 @@ dconf dump /org/gnome/shell/app-switcher/ > "$APP_SWITCHER"
 PERIPHERALS="$SCRIPT_DIR/desktop/peripherals.dconf"
 INPUT_SOURCES="$SCRIPT_DIR/desktop/input-sources.dconf"
 WM="$SCRIPT_DIR/desktop/wm.dconf"
+BACKGROUND="$SCRIPT_DIR/desktop/background.dconf"
 
 dconf dump /org/gnome/desktop/peripherals/ > "$PERIPHERALS"
 dconf dump /org/gnome/desktop/input-sources/ > "$INPUT_SOURCES"
 dconf dump /org/gnome/desktop/wm/ > "$WM"
+dconf dump /org/gnome/desktop/background/ > "$BACKGROUND"
 
 # Settings daemon
 SETTINGS_DAEMON="$SCRIPT_DIR/settings-daemon/settings-daemon.dconf"
@@ -29,4 +31,5 @@ echo "  $APP_SWITCHER"
 echo "  $PERIPHERALS"
 echo "  $INPUT_SOURCES"
 echo "  $WM"
+echo "  $BACKGROUND"
 echo "  $SETTINGS_DAEMON"
