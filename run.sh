@@ -76,4 +76,17 @@ if [ -d gnome ]; then
   . gnome/gnome-settings.sh
 fi
 
+# Install brightnessctl if not present
+if ! command -v brightnessctl &> /dev/null; then
+  echo "Installing brightnessctl ..."
+  sudo apt install brightnessctl
+fi
+
+if command -v brightnessctl &> /dev/null; then
+  echo "Enabling brightnessctl permissions ..."
+  sudo chmod +s /usr/bin/brightnessctl
+  sudo usermod -aG video $USER
+fi
+
 echo "Setup complete! You may want to reboot your system."
+
