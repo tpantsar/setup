@@ -92,3 +92,11 @@ else
   echo "uv is already installed"
 fi
 
+# Install nvm (Node Version Manager) - https://github.com/nvm-sh/nvm#installing-and-updating
+if ! command -v nvm &> /dev/null; then
+  echo "Installing nvm ..."
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+else
+  echo "nvm is already installed"
+fi
+
