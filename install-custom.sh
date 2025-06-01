@@ -100,3 +100,12 @@ else
   echo "nvm is already installed"
 fi
 
+# betterlockscreen
+if ! command -v betterlockscreen &> /dev/null; then
+  echo "Installing betterlockscreen ..."
+  sudo apt install imagemagick
+  wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system
+else
+  echo "betterlockscreen is already installed"
+fi
+
