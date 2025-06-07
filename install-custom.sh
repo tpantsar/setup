@@ -133,6 +133,9 @@ if ! command -v yazi &> /dev/null; then
 
   # Add yazi and ya to your $PATH
   sudo mv target/release/yazi target/release/ya /usr/local/bin/
+
+  # Check version
+  yazi -V
 else
   echo "yazi is already installed"
 fi
