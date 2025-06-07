@@ -121,6 +121,7 @@ else
 fi
 
 # yazi - https://github.com/sxyazi/yazi
+# https://yazi-rs.github.io/docs/installation#source
 if ! command -v yazi &> /dev/null; then
   echo "Installing yazi ..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
