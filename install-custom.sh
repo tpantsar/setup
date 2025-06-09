@@ -1,6 +1,9 @@
 #!/bin/bash
 # This script installs custom packages and tools for system setup.
 
+# Return on errors
+set -e
+
 # Neovim build - https://github.com/neovim/neovim/blob/master/BUILD.md
 if ! command -v nvim &> /dev/null; then
   echo "Building and installing Neovim from source" 
@@ -20,7 +23,10 @@ fi
 
 # bat -> batcat symlink
 mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
+
+if ! command -v bat &> /dev/null; then
+  ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
 
 # Install oh-my-zsh - https://ohmyz.sh/#basic-installation
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
