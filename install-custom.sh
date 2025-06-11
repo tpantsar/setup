@@ -4,6 +4,9 @@
 # Return on errors
 set -e
 
+# Ensure that local/bin directory exists for custom executables
+mkdir -p ~/.local/bin/
+
 # Neovim build - https://github.com/neovim/neovim/blob/master/BUILD.md
 if ! command -v nvim &> /dev/null; then
   echo "Building and installing Neovim from source" 
@@ -22,8 +25,6 @@ else
 fi
 
 # bat -> batcat symlink
-mkdir -p ~/.local/bin
-
 if ! command -v bat &> /dev/null; then
   ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
