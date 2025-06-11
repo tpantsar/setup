@@ -100,11 +100,13 @@ else
 fi
 
 # Install nvm (Node Version Manager) - https://github.com/nvm-sh/nvm#installing-and-updating
-if ! command -v nvm &> /dev/null; then
-  echo "Installing nvm ..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-else
+# Check if nvm is installed by checking the init script
+# nvm is a shell function, not a standalone binary
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
   echo "nvm is already installed"
+else
+  echo "Installing nvm (Node Version Manager) ..."
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 fi
 
 # betterlockscreen
