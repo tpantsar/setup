@@ -149,7 +149,7 @@ fi
 
 # i3-resurrect - https://github.com/JonnyHaystack/i3-resurrect
 if ! command -v i3-resurrect &> /dev/null; then
-  echo "Installing i3-resurrect ..."
+  echo "Installing i3-resurrect from source ..."
 
   # Clone and build i3-resurrect from source
   git clone --depth=1 git@github.com:JonnyHaystack/i3-resurrect.git ~/i3-resurrect
@@ -162,8 +162,28 @@ if ! command -v i3-resurrect &> /dev/null; then
   ~/i3-resurrect/.venv/bin/i3-resurrect --version
 
   # Copy i3-resurrect executable to PATH
-  sudo cp ~/i3-resurrect/.venv/bin/i3-resurrect ~/.local/bin
+  sudo cp ~/i3-resurrect/.venv/bin/i3-resurrect ~/.local/bin/
 else
   echo "i3-resurrect is already installed"
+fi
+
+# autorandr - https://github.com/phillipberndt/autorandr
+if ! command -v autorandr &> /dev/null; then
+  echo "Installing autorandr from source ..."
+
+  # Clone and build autorandr from source
+  git clone --depth=1 https://github.com/phillipberndt/autorandr.git ~/autorandr
+  cd ~/autorandr
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip3 install .
+
+  # Test autorandr executable
+  ~/autorandr/.venv/bin/autorandr --version
+
+  # Copy autorandr executable to PATH
+  sudo cp ~/autorandr/.venv/bin/autorandr ~/.local/bin/
+else
+  echo "autorandr is already installed"
 fi
 
