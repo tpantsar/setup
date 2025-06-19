@@ -54,6 +54,18 @@ else
   echo "tmuxifier is already installed."
 fi
 
+# Alacritty
+if ! command -v alacritty &> /dev/null; then
+  echo "Installing alacritty..."
+  cargo install alacritty
+
+  # Test alacritty executable
+  which alacritty
+  alacritty --version
+else
+  echo "alacritty is already installed"
+fi
+
 # Install kitty - https://sw.kovidgoyal.net/kitty/binary/
 # Do not copy the kitty binary out of the installation folder.
 # If you want to add it to your PATH, create a symlink in ~/.local/bin or /usr/bin or wherever.
@@ -63,6 +75,7 @@ if ! command -v kitty &> /dev/null; then
 
   # Add symlink to kitty executable
   ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/kitty
+  which kitty
   kitty --version
 else
   echo "kitty is already installed"
