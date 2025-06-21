@@ -2,7 +2,7 @@
 
 # Print the logo
 print_logo() {
-    cat << "EOF"
+	cat <<"EOF"
     ______                _ __    __     
    / ____/______  _______(_) /_  / /__   
   / /   / ___/ / / / ___/ / __ \/ / _ \  
@@ -24,8 +24,8 @@ source utils.sh
 
 # Source the package list
 if [ ! -f "packages.conf" ]; then
-  echo "Error: packages.conf not found!"
-  exit 1
+	echo "Error: packages.conf not found!"
+	exit 1
 fi
 
 source packages.conf
@@ -55,38 +55,37 @@ install_packages "${MEDIA[@]}"
 # Enable services
 echo "Configuring services..."
 for service in "${SERVICES[@]}"; do
-  if ! systemctl is-enabled "$service" &> /dev/null; then
-    echo "Enabling $service..."
-    sudo systemctl enable "$service"
-  else
-    echo "$service is already enabled"
-  fi
-  sudo systemctl start "$service"
+	if ! systemctl is-enabled "$service" &>/dev/null; then
+		echo "Enabling $service..."
+		sudo systemctl enable "$service"
+	else
+		echo "$service is already enabled"
+	fi
+	sudo systemctl start "$service"
 done
 
 # Install gnome specific things to make it like a tiling WM
 if [ -d gnome ]; then
-  echo "Installing Gnome extensions..."
-  . gnome/gnome-extensions.sh
+	echo "Installing Gnome extensions..."
+	. gnome/gnome-extensions.sh
 
-  echo "Setting Gnome hotkeys..."
-  . gnome/gnome-hotkeys.sh
+	echo "Setting Gnome hotkeys..."
+	. gnome/gnome-hotkeys.sh
 
-  echo "Configuring Gnome..."
-  . gnome/gnome-settings.sh
+	echo "Configuring Gnome..."
+	. gnome/gnome-settings.sh
 fi
 
 # Install brightnessctl if not present
-if ! command -v brightnessctl &> /dev/null; then
-  echo "Installing brightnessctl ..."
-  sudo apt install brightnessctl
+if ! command -v brightnessctl &>/dev/null; then
+	echo "Installing brightnessctl ..."
+	sudo apt install brightnessctl
 fi
 
-if command -v brightnessctl &> /dev/null; then
-  echo "Enabling brightnessctl permissions ..."
-  sudo chmod +s /usr/bin/brightnessctl
-  sudo usermod -aG video $USER
+if command -v brightnessctl &>/dev/null; then
+	echo "Enabling brightnessctl permissions ..."
+	sudo chmod +s /usr/bin/brightnessctl
+	sudo usermod -aG video $USER
 fi
 
 echo "Setup complete! You may want to reboot your system."
-

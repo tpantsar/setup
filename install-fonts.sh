@@ -11,15 +11,15 @@ FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/${FON
 
 # Check if font is already installed
 if fc-list | grep -i "$FONT_NAME" &>/dev/null; then
-    echo "$FONT_NAME Nerd Font is already installed."
-    exit 0
+	echo "$FONT_NAME Nerd Font is already installed."
+	exit 0
 fi
 
 # Ensure unzip is installed
-if ! command -v unzip &> /dev/null; then
-    echo "unzip not found. Installing..."
-    sudo apt update
-    sudo apt install -y unzip
+if ! command -v unzip &>/dev/null; then
+	echo "unzip not found. Installing..."
+	sudo apt update
+	sudo apt install -y unzip
 fi
 
 # Create font directory if it doesn't exist
@@ -40,8 +40,8 @@ fc-cache -fv
 
 # Final check
 if fc-list | grep -i "$FONT_NAME" &>/dev/null; then
-    echo "$FONT_NAME Nerd Font installed successfully."
+	echo "$FONT_NAME Nerd Font installed successfully."
 else
-    echo "Failed to install $FONT_NAME Nerd Font."
-    exit 1
+	echo "Failed to install $FONT_NAME Nerd Font."
+	exit 1
 fi

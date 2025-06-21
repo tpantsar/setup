@@ -6,7 +6,7 @@
 # The default developer packages from debian based distributions,
 # cmake and cairo headers are prerequisites for this script. If
 # anything else is missing on your system, this script should be
-# easily extendible by inserting further packages into the 
+# easily extendible by inserting further packages into the
 # BUILD array below.
 #
 # Execute this using bash, and the script will try to build all packages in the
@@ -19,7 +19,7 @@
 # After installation, you can run i3 using
 #  LD_LIBRARY_PATH=prefix/lib XDG_CONFIG_HOME=prefix/etc PATH=prefix/bin:$PATH prefix/bin/i3
 
-PREFIX=`pwd`
+PREFIX=$(pwd)
 [ -d $PREFIX/build ] || mkdir -p $PREFIX/build
 cd $PREFIX/build
 
@@ -48,7 +48,7 @@ BUILD=(
 )
 
 # Build all packages in the array BUILD
-for PACKAGE in `seq 0 $[${#BUILD[@]}-1]`; do
+for PACKAGE in $(seq 0 $((${#BUILD[@]} - 1))); do
 	PACKAGE=${BUILD[$PACKAGE]}
 	FILE=$(basename $PACKAGE)
 
@@ -84,7 +84,6 @@ for PACKAGE in `seq 0 $[${#BUILD[@]}-1]`; do
 	fi
 	rm -f $LOGFILE
 done
-
 
 ### BUILD i3 #############################################################
 echo "Building i3"
