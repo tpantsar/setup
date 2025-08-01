@@ -66,6 +66,18 @@ else
   echo "alacritty is already installed"
 fi
 
+# eza: A modern replacement for ls - https://github.com/eza-community/eza/tree/main
+if ! command -v eza &>/dev/null; then
+  echo "Installing eza..."
+  cargo install eza
+
+  # Test eza executable
+  which eza
+  eza --version
+else
+  echo "eza is already installed"
+fi
+
 # Install kitty - https://sw.kovidgoyal.net/kitty/binary/
 # Do not copy the kitty binary out of the installation folder.
 # If you want to add it to your PATH, create a symlink in ~/.local/bin or /usr/bin or wherever.
