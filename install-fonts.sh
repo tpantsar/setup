@@ -4,10 +4,11 @@
 # Exit on any error
 set -e
 
-FONT_NAME="Meslo" # JetBrainsMono, Meslo, FiraCode, etc.
+# https://www.nerdfonts.com/font-downloads
+FONT_NAME="JetBrainsMono" # JetBrainsMono, Meslo, FiraCode, etc.
 FONT_DIR="$HOME/.local/share/fonts"
 ZIP_FILE="$FONT_DIR/${FONT_NAME}.zip"
-FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/${FONT_NAME}.zip"
+FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${FONT_NAME}.zip"
 
 # Check if font is already installed
 if fc-list | grep -i "$FONT_NAME" &>/dev/null; then
