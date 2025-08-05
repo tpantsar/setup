@@ -108,6 +108,21 @@ else
   echo "lazygit is already installed"
 fi
 
+# Install lazydocker - https://github.com/jesseduffield/lazydocker?tab=readme-ov-file#ubuntu
+if ! command -v lazydocker &>/dev/null; then
+  echo "Installing lazydocker..."
+  LAZYDOCKER_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazydocker/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+  curl -Lo lazydocker.tar.gz "https://github.com/jesseduffield/lazydocker/releases/download/v${LAZYDOCKER_VERSION}/lazydocker_${LAZYDOCKER_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazydocker.tar.gz lazydocker
+  sudo install lazydocker -D -t /usr/local/bin/
+
+  # Test lazydocker executable
+  which lazydocker
+  lazydocker --version
+else
+  echo "lazydocker is already installed"
+fi
+
 # Install onedrive - https://github.com/abraunegg/onedrive/blob/master/docs/install.md
 if ! command -v onedrive &>/dev/null; then
   echo "Installing build dependencies for onedrive ..."
