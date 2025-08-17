@@ -5,7 +5,7 @@
 set -e
 
 # https://www.nerdfonts.com/font-downloads
-# JetBrainsMono, Meslo, FiraCode
+# JetBrainsMono, Meslo, FiraCode, DroidSansMono
 FONT_NAME="JetBrainsMono"
 FONT_DIR="$HOME/.local/share/fonts"
 ZIP_FILE="$FONT_DIR/${FONT_NAME}.zip"
