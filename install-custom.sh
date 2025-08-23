@@ -10,22 +10,24 @@ mkdir -p ~/.local/bin/
 # Neovim build - https://github.com/neovim/neovim/blob/master/BUILD.md
 # https://github.com/neovim/neovim/blob/stable/BUILD.md#build-prerequisites
 if ! command -v nvim &>/dev/null; then
-  echo "Building and installing Neovim from source"
-  git clone https://github.com/neovim/neovim ~/neovim
-  cd ~/neovim
-  git checkout stable
+  echo "Building and installing Neovim (stable release) from source"
+  rm -rf ~/neovim/
 
-  # Install stable release
+  # Shallow clone only the stable branch
+  git clone --branch stable --single-branch --depth 1 https://github.com/neovim/neovim ~/neovim
+  cd ~/neovim
+
+  # Build with Release type
   make CMAKE_BUILD_TYPE=Release
 
-  # verify the build type after compilation
+  # Verify build type after compilation
   ./build/bin/nvim --version | grep ^Build
 
   # Install and check version
   sudo make install
   nvim -V1 -v
 else
-  echo "neovim is already installed"
+  echo "Neovim is already installed"
 fi
 
 # bat -> batcat symlink
