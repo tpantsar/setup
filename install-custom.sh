@@ -300,7 +300,13 @@ if ! command -v docker &>/dev/null; then
   sudo sh ./get-docker.sh
 
   # Test docker executable
-  docker version
+  /usr/bin/docker version
+
+  # Add sudo permissions to your user
+  sudo groupadd docker
+  sudo usermod -aG docker "$USER"
+  groups | grep -i docker
+  /usr/bin/docker ps
 else
   echo "docker is already installed"
 fi
