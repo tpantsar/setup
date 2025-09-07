@@ -130,6 +130,7 @@ else
 fi
 
 # Install onedrive - https://github.com/abraunegg/onedrive/blob/master/docs/install.md
+# https://github.com/abraunegg/onedrive/blob/master/docs/advanced-usage.md#configuring-the-client-to-use-multiple-onedrive-accounts--configurations
 if ! command -v onedrive &>/dev/null; then
   echo "Installing build dependencies for onedrive ..."
   sudo apt install build-essential
@@ -172,6 +173,37 @@ if ! command -v onedrive &>/dev/null; then
 
   echo "Deactivating dmd environment ..."
   deactivate
+
+  echo "Configuring Personal OneDrive account ..."
+  mkdir -p ~/.config/onedrive-personal/
+  wget https://raw.githubusercontent.com/abraunegg/onedrive/master/config -O ~/.config/onedrive-personal/config
+
+  # Update sync_dir in config file to point to your desired sync location
+  sed -i 's|^#\? *sync_dir *=.*|sync_dir = "~/OneDrive-Personal"|' ~/.config/onedrive-personal/config
+  sed -i 's|^#\? *skip_dir *=.*|skip_dir = ".*Temp.*"|' ~/.config/onedrive-personal/config
+
+  # Sync the OneDrive account data
+  # --sync does a one-time sync
+  # --monitor keeps the application running and monitoring for changes both local and remote
+  onedrive --confdir ~/.config/onedrive-personal/ --monitor --verbose
+
+  # Enable service
+  sudo cp /usr/lib/systemd/user/onedrive.service /usr/lib/systemd/user/onedrive-personal.service
+  sudo chmod 644 /usr/lib/systemd/user/onedrive-personal.service
+
+  # temp file permissions
+  sudo chown "$USER":"$USER" /usr/lib/systemd/user/
+
+  # Edit the new systemd file, updating the line beginning with ExecStart so that the confdir mirrors the one you used above:
+  # The ~ must be manually expanded when editing systemd file.
+  sed -i 's|^ExecStart=.*|ExecStart=/usr/local/bin/onedrive --confdir '"$HOME"'/.config/onedrive-personal --monitor|' /usr/lib/systemd/user/onedrive-personal.service
+
+  # Enable the new systemd service
+  systemctl --user enable onedrive-personal.service
+  systemctl --user start onedrive-personal.service
+
+  # Check status
+  systemctl --user status onedrive-personal.service
 else
   echo "onedrive is already installed"
 fi
