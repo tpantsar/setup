@@ -5,11 +5,14 @@
 set -e
 
 # https://www.nerdfonts.com/font-downloads
-# JetBrainsMono, Meslo, FiraCode, DroidSansMono
+# JetBrainsMono, Meslo, FiraCode, FiraMono, DroidSansMono, CascadiaMono, SourceCodePro, Hack
 FONT_NAME="JetBrainsMono"
 FONT_DIR="$HOME/.local/share/fonts"
 ZIP_FILE="$FONT_DIR/${FONT_NAME}.zip"
-FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${FONT_NAME}.zip"
+
+# Get the latest version number from GitHub API
+FONT_VERSION=$(curl -s "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v${FONT_VERSION}/${FONT_NAME}.zip"
 
 # Check if font is already installed
 if fc-list | grep -i "$FONT_NAME" &>/dev/null; then
