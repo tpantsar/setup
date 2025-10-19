@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-
-set -e
-
 SSH_DIR="$HOME/.ssh"
 KEY_FILE="$SSH_DIR/id_ed25519"
 
