@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: create-migration.sh <folder> <title>"
+  echo "Example: create-migration.sh post-install setup-git"
+  exit 1
+fi
+
+FOLDER="$1"
+TITLE="$2"
+DATE="$(date +%m-%d)"
+FILENAME="${DATE}-${TITLE}.sh"
+TARGET_DIR="install/${FOLDER}"
+
+mkdir -p "$TARGET_DIR"
+FILE_PATH="${TARGET_DIR}/${FILENAME}"
+
+cat <<EOF > "$FILE_PATH"
+#!/usr/bin/env bash
+set -e
+
+info "Running step: ${TITLE}"
+EOF
+
+chmod +x "$FILE_PATH"
+echo "Created: $FILE_PATH"
