@@ -1,10 +1,8 @@
-#!/usr/bin/env bash
-
-set -e
+#!/bin/bash
 
 if [ -z "$1" ]; then
-  echo "Usage: create-migration.sh <folder> <title>"
-  echo "Example: create-migration.sh post-install setup-git"
+  echo "Usage: create-migration <folder> <title>"
+  echo "Example: create-migration post-install setup-git"
   exit 1
 fi
 
@@ -26,3 +24,4 @@ EOF
 
 chmod +x "$FILE_PATH"
 echo "Created: $FILE_PATH"
+nvim "$FILE_PATH"
