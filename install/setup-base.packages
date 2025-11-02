@@ -1,0 +1,11 @@
+# Core package list installed via install/packaging/base.sh
+
+zsh
+stow
+tmux
+firefox
+thunderbird
+tree
+xclip
+npm
+uv
