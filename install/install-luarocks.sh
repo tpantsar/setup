@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-# --- config ---
 PREFIX="/usr/local"
 LUA_INCLUDE_DIR="$PREFIX/include"
 
@@ -27,7 +26,7 @@ if [ -z "$LUAROCKS_VERSION" ]; then
   exit 1
 fi
 
-# --- download & extract ---
+# download & extract
 TMP_DIR=$(mktemp -d)
 cd "$TMP_DIR"
 
@@ -38,14 +37,14 @@ tar -xzf "$TARBALL"
 # go into extracted directory
 cd luarocks-*
 
-# --- build & install ---
+# build & install
 ./configure --with-lua-include="$LUA_INCLUDE_DIR"
 make
 sudo make install
 
-# --- cleanup ---
+# cleanup
 cd /
 rm -rf "$TMP_DIR"
 
-echo "✅ LuaRocks installed successfully."
+echo "LuaRocks installed successfully."
 luarocks --version

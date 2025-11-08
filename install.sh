@@ -3,14 +3,36 @@
 # Exit immediately if a command exits with a non-zero status
 set -eEo pipefail
 
-# Define paths
-export SETUP_PATH="$HOME/.local/share/setup"
-export SETUP_INSTALL="$SETUP_PATH/install"
-export SETUP_INSTALL_LOG_FILE="/var/log/setup-install.log"
-export PATH="$SETUP_PATH/bin:$PATH"
+source /etc/os-release
+clear
 
-# Install
-source "$SETUP_INSTALL/helpers/all.sh"
-source "$SETUP_INSTALL/preflight/all.sh"
-source "$SETUP_INSTALL/packaging/all.sh"
-source "$SETUP_INSTALL/post-install/all.sh"
+# Install paths
+export SETUP_PATH="$HOME/setup"
+export SETUP_INSTALL="$SETUP_PATH/install"
+
+# Base installation
+source "$SETUP_INSTALL/bypass-sudo.sh"
+source "$SETUP_INSTALL/add-ssh-key-gh.sh"
+source "$SETUP_INSTALL/install-dotfiles.sh"
+#source "$SETUP_INSTALL/install-luarocks.sh"
+source "$SETUP_INSTALL/install-tmux.sh"
+source "$SETUP_INSTALL/install-zsh.sh"
+source "$SETUP_INSTALL/install-gcalcli.sh"
+source "$SETUP_INSTALL/setup-repos.sh"
+source "$SETUP_INSTALL/setup-tmux.sh"
+source "$SETUP_INSTALL/setup-onedrive.sh"
+source "$SETUP_INSTALL/set-shell.sh"
+source "$SETUP_INSTALL/set-default-browser.sh"
+
+# Distro-specific installation
+if [[ "$ID" == "arch" ]]; then
+  source "$SETUP_INSTALL/arch/install.sh"
+elif [[ "$ID" == "ubuntu" || "$ID" == "debian" ]]; then
+  source "$SETUP_INSTALL/ubuntu/install.sh"
+else
+  echo "Other distro: $ID"
+  echo "Unsupported distribution. Exiting."
+  exit 1
+fi
+
+echo "Setup complete! You may want to reboot your system."

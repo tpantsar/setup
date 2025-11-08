@@ -1,6 +1,7 @@
 # Linux Setup Tool 🛠️
 
-Linux System Tool that automates the setup and configuration of Ubuntu/Debian based Linux systems with Gnome. It installs and configures packages, desktop environments, and various utilities to create a fully functional development environment.
+Linux System Tool that automates the setup and configuration of Ubuntu/Debian/Arch based Linux systems.
+It installs and configures packages, desktop environments, and various utilities to create a fully functional development environment.
 
 ## Features
 
@@ -20,26 +21,28 @@ Linux System Tool that automates the setup and configuration of Ubuntu/Debian ba
 
 ## Prerequisites
 
-- A fresh Ubuntu Linux installation
+- A fresh Ubuntu/Debian or Arch Linux installation
 - Internet connection
 - sudo privileges
 
 ## Installation
 
-1. Clone this repository:
+From source:
 
 ```bash
-git clone https://github.com/tpantsar/setup.git
+git clone https://github.com/tpantsar/setup.git ~/setup/
+cd ~/setup/
+./install.sh
 ```
 
-2. Run the setup script:
+Install with curl:
 
 ```bash
-./run.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
 ```
 
-3. Follow the prompts to select the packages you want to install.
+Follow the prompts to select the packages you want to install.
 
-4. The script will handle the rest of the setup process.
+The script will handle the rest of the setup process.
 
-5. After the setup is complete, you can reboot your system to see the changes.
+After the setup is complete, you can reboot your system to see the changes.
