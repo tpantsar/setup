@@ -6,6 +6,9 @@ set -eEo pipefail
 source /etc/os-release
 clear
 
+# Clone the setup repository
+git clone https://github.com/tpantsar/setup.git ~/setup || true
+
 # Install paths
 export SETUP_PATH="$HOME/setup"
 export SETUP_INSTALL="$SETUP_PATH/install"
