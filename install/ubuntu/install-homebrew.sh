@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# This script installs:
-# homebrew package manager
-# sesh (terminal session manager)
-# lf (terminal file manager)
-
 if ! command -v brew &>/dev/null; then
   echo "Installing homebrew ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,12 +7,18 @@ else
   echo "Homebrew is already installed"
 fi
 
-# Install sesh
 if ! command -v sesh &>/dev/null; then
   echo "Installing sesh ..."
   brew install sesh
 else
   echo "sesh is already installed"
+fi
+
+if ! command -v delta &>/dev/null; then
+  echo "Installing git-delta ..."
+  brew install git-delta
+else
+  echo "git-delta is already installed"
 fi
 
 # Install gum
