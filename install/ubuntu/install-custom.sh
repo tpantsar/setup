@@ -51,15 +51,6 @@ else
   echo "zoxide is already installed"
 fi
 
-# Install tmuxifier - https://github.com/jimeh/tmuxifier
-if ! command -v tmuxifier &>/dev/null; then
-  echo "tmuxifier is not installed. Installing..."
-  git clone --depth=1 https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-  echo "tmuxifier installed successfully!"
-else
-  echo "tmuxifier is already installed."
-fi
-
 # Alacritty
 if ! command -v alacritty &>/dev/null; then
   echo "Installing alacritty..."

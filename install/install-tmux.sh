@@ -32,13 +32,3 @@ else
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
   echo "TPM installed successfully!"
 fi
-
-# Install tmuxifier - https://github.com/jimeh/tmuxifier
-if ! command -v tmuxifier &>/dev/null; then
-  echo "tmuxifier is not installed. Installing..."
-  git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-  export PATH="$HOME/.tmuxifier/bin:$PATH"
-  echo "tmuxifier installed successfully!"
-else
-  echo "tmuxifier is already installed."
-fi
