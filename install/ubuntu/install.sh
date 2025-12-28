@@ -29,7 +29,7 @@ echo "Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # Install packages
-mapfile -t packages < <(grep -v '^#' "$SETUP_INSTALL/ubuntu/packages.conf" | grep -v '^$')
+mapfile -t packages < <(grep -v '^#' "$SETUP_INSTALL/ubuntu/packages.apt" | grep -v '^$')
 install_packages "${packages[@]}"
 
 # Install gnome specific things to make it like a tiling WM
