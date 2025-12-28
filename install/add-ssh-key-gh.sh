@@ -2,11 +2,15 @@
 # Automatically generate an SSH key (if missing) and add it to GitHub via Github CLI.
 # Ensure GitHub SSH auth works; if not, upload an SSH key via GitHub CLI.
 
-set -euo pipefail
-
 # Optional override:
 # SSH_KEY=~/.ssh/id_ed25519
 SSH_KEY="${SSH_KEY:-}"
+
+# Skip when gh isn't installed yet to avoid aborting the full installer.
+if ! command -v gh >/dev/null 2>&1; then
+  echo "gh not found; skipping GitHub SSH key setup."
+  exit 0
+fi
 
 # Prefer modern key, but also consider RSA
 DEFAULT_KEYS=(
@@ -36,7 +40,7 @@ need_cmd() {
 # Detect GitHub's "success" banner (exit code is often 1 even on success)
 ssh_auth_works_with_key() {
   local key="$1"
-  [[ -f "$key" ]] || return 1
+  [[ -f "$key" ]] || exit 1
 
   local extra_opts=()
   # If supported, avoid interactive host key prompt on first connect
@@ -103,13 +107,13 @@ echo "Checking existing SSH authentication to GitHub..."
 if [[ -n "$SSH_KEY" ]]; then
   if ssh_auth_works_with_key "$SSH_KEY"; then
     echo "Already authenticated to GitHub over SSH using: $SSH_KEY"
-    return
+    exit 0
   fi
 else
   for k in "${DEFAULT_KEYS[@]}"; do
     if ssh_auth_works_with_key "$k"; then
       echo "Already authenticated to GitHub over SSH using: $k"
-      return
+      exit 0
     fi
   done
 fi

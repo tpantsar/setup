@@ -4,7 +4,7 @@ CONFIG_DIR="$HOME/.config/onedrive-personal"
 
 if ! command -v onedrive &>/dev/null; then
   echo "OneDrive client not found. Please install it first."
-  return
+  exit 1
 fi
 
 if [ ! -f "$CONFIG_DIR/config" ]; then
@@ -21,5 +21,5 @@ if [ ! -f "$CONFIG_DIR/config" ]; then
   echo "OneDrive service enabled and started."
 else
   echo "OneDrive config already exists, skipping."
-  return
+  exit 0
 fi

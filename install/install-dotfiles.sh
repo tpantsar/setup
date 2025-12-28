@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source /etc/os-release
-set -e
 
 REPO_URL="git@github.com:tpantsar/dotfiles.git"
 REPO_NAME="dotfiles"
@@ -34,7 +33,7 @@ else
   exit 1
 fi
 
-cd ~ || exit
+cd ~ || exit 1
 
 # Check if the repository already exists
 if [ -d "$REPO_NAME" ]; then

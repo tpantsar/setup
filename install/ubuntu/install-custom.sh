@@ -1,9 +1,6 @@
 #!/bin/bash
 # This script installs custom packages and tools for system setup.
 
-# Return on errors
-set -e
-
 # Ensure that local/bin directory exists for custom executables
 mkdir -p ~/.local/bin/
 

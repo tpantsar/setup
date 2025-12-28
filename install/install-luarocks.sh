@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+# Install luarocks
 
 PREFIX="/usr/local"
 LUA_INCLUDE_DIR="$PREFIX/include"

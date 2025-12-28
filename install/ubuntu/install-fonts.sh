@@ -1,9 +1,6 @@
 #!/bin/bash
 # This script installs the Nerd Font on a Linux system.
 
-# Exit on any error
-set -e
-
 # https://www.nerdfonts.com/font-downloads
 # JetBrainsMono, Meslo, FiraCode, FiraMono, DroidSansMono, CascadiaMono, SourceCodePro, Hack
 FONT_NAME="JetBrainsMono"

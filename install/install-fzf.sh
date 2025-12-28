@@ -3,9 +3,20 @@
 
 if command -v fzf &>/dev/null; then
   echo "fzf is already installed. Skipping."
-  return
+  exit 0
 fi
 
+if ! command -v git &>/dev/null; then
+  echo "Git is not installed. Please install Git first."
+  exit 1
+fi
+
+if [ -d "$HOME/.fzf" ]; then
+  echo "Removing existing ~/.fzf directory ..."
+  rm -rf "$HOME/.fzf"
+fi
+
+echo "Cloning and installing fzf ..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 

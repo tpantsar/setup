@@ -1,11 +1,15 @@
 #!/bin/bash
 
 source /etc/os-release
-set -e
 
 # Troubleshooting:
 # tmux open terminal failed: not a terminal
 # https://stackoverflow.com/questions/25207909/tmux-open-terminal-failed-not-a-terminal
+
+if command -v tmux &>/dev/null; then
+  echo "tmux is already installed."
+  exit 0
+fi
 
 # Install tmux
 if [[ "$ID" == "arch" ]]; then

@@ -1,8 +1,6 @@
 #!/bin/bash
 # Automatically generate an SSH key (if missing) and add it to GitHub via API.
 
-set -euo pipefail
-
 KEY_PATH="${HOME}/.ssh/id_ed25519"
 EMAIL="${EMAIL:-$(git config user.email || echo "user@example.com")}"
 TITLE="${TITLE:-$(hostname)-$(date +%Y%m%d-%H%M%S)}"

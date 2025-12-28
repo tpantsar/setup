@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -eEo pipefail
+
+# Install paths
 export SETUP_PATH="$HOME/setup"
 export SETUP_INSTALL="$SETUP_PATH/install"
 

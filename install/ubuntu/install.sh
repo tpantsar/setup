@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set -eEo pipefail
+
+# Install paths
+export SETUP_PATH="$HOME/setup"
+export SETUP_INSTALL="$SETUP_PATH/install"
+
 # Print the logo
 print_logo() {
   cat <<"EOF"
@@ -16,11 +22,7 @@ EOF
 clear
 print_logo
 
-# Exit on any error
-set -e
-
 source "$SETUP_INSTALL/ubuntu/utils.sh"
-echo "Starting system setup..."
 
 # Update the system
 echo "Updating system..."
@@ -31,18 +33,16 @@ mapfile -t packages < <(grep -v '^#' "$SETUP_INSTALL/ubuntu/packages.conf" | gre
 install_packages "${packages[@]}"
 
 # Install gnome specific things to make it like a tiling WM
-source "$SETUP_INSTALL/ubuntu/gnome/gnome-extensions.sh"
-source "$SETUP_INSTALL/ubuntu/gnome/gnome-hotkeys.sh"
-source "$SETUP_INSTALL/ubuntu/gnome/gnome-settings.sh"
+bash "$SETUP_INSTALL/ubuntu/gnome/gnome-extensions.sh"
+bash "$SETUP_INSTALL/ubuntu/gnome/gnome-hotkeys.sh"
+bash "$SETUP_INSTALL/ubuntu/gnome/gnome-settings.sh"
 
 # Custom scripts
-source "$SETUP_INSTALL/ubuntu/install-custom.sh"
-source "$SETUP_INSTALL/ubuntu/install-flatpaks.sh"
-source "$SETUP_INSTALL/ubuntu/install-fonts.sh"
-source "$SETUP_INSTALL/ubuntu/install-homebrew.sh"
+bash "$SETUP_INSTALL/ubuntu/install-custom.sh"
+# bash "$SETUP_INSTALL/ubuntu/install-flatpaks.sh"
+bash "$SETUP_INSTALL/ubuntu/install-fonts.sh"
+bash "$SETUP_INSTALL/ubuntu/install-homebrew.sh"
 
 # Other
-source "$SETUP_INSTALL/ubuntu/services.sh"
-source "$SETUP_INSTALL/ubuntu/brightnessctl.sh"
-
-echo "Setup complete! You may want to reboot your system."
+bash "$SETUP_INSTALL/ubuntu/services.sh"
+bash "$SETUP_INSTALL/ubuntu/brightnessctl.sh"
