@@ -20,62 +20,29 @@ print_logo
 set -e
 
 source "$SETUP_INSTALL/ubuntu/utils.sh"
-source "$SETUP_INSTALL/ubuntu/packages.conf"
-
 echo "Starting system setup..."
 
-# Update the system first
+# Update the system
 echo "Updating system..."
 sudo apt update && sudo apt upgrade -y
 
-# Install packages by category
-echo "Installing system utilities..."
-install_packages "${SYSTEM_UTILS[@]}"
-
-echo "Installing development tools..."
-install_packages "${DEV_TOOLS[@]}"
-
-echo "Installing system maintenance tools..."
-install_packages "${MAINTENANCE[@]}"
-
-echo "Installing desktop environment..."
-install_packages "${DESKTOP[@]}"
-
-echo "Installing media packages..."
-install_packages "${MEDIA[@]}"
-
-# Enable services
-echo "Configuring services..."
-for service in "${SERVICES[@]}"; do
-  if ! systemctl is-enabled "$service" &>/dev/null; then
-    echo "Enabling $service..."
-    sudo systemctl enable "$service"
-  else
-    echo "$service is already enabled"
-  fi
-  sudo systemctl start "$service"
-done
+# Install packages
+mapfile -t packages < <(grep -v '^#' "$SETUP_INSTALL/ubuntu/packages.conf" | grep -v '^$')
+install_packages "${packages[@]}"
 
 # Install gnome specific things to make it like a tiling WM
-echo "Installing Gnome extensions..."
-. gnome/gnome-extensions.sh
+source "$SETUP_INSTALL/ubuntu/gnome/gnome-extensions.sh"
+source "$SETUP_INSTALL/ubuntu/gnome/gnome-hotkeys.sh"
+source "$SETUP_INSTALL/ubuntu/gnome/gnome-settings.sh"
 
-echo "Setting Gnome hotkeys..."
-. gnome/gnome-hotkeys.sh
+# Custom scripts
+source "$SETUP_INSTALL/ubuntu/install-custom.sh"
+source "$SETUP_INSTALL/ubuntu/install-flatpaks.sh"
+source "$SETUP_INSTALL/ubuntu/install-fonts.sh"
+source "$SETUP_INSTALL/ubuntu/install-homebrew.sh"
 
-echo "Configuring Gnome..."
-. gnome/gnome-settings.sh
-
-# Install brightnessctl if not present
-if ! command -v brightnessctl &>/dev/null; then
-  echo "Installing brightnessctl ..."
-  sudo apt install brightnessctl
-fi
-
-if command -v brightnessctl &>/dev/null; then
-  echo "Enabling brightnessctl permissions ..."
-  sudo chmod +s /usr/bin/brightnessctl
-  sudo usermod -aG video $USER
-fi
+# Other
+source "$SETUP_INSTALL/ubuntu/services.sh"
+source "$SETUP_INSTALL/ubuntu/brightnessctl.sh"
 
 echo "Setup complete! You may want to reboot your system."
