@@ -9,7 +9,7 @@ if ! command -v gh &>/dev/null; then
 fi
 
 PRIVATE_KEY="${HOME}/.ssh/id_ed25519"
-EMAIL="${EMAIL:-$(git config user.email || echo "user@example.com")}"
+EMAIL="${EMAIL:-$(git config user.email || echo "tomi.pantsar@gmail.com")}"
 TITLE="${TITLE:-$(hostname)-$(date +%Y%m%d-%H%M%S)}"
 PUB_KEY="${PRIVATE_KEY}.pub"
 

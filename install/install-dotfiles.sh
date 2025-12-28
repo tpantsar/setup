@@ -46,10 +46,10 @@ fi
 # Check if the clone was successful
 if [ -d "$REPO_TARGET" ]; then
   echo "removing old configs"
-  rm -rf ~/.config/nvim ~/.config/starship.toml ~/.local/share/nvim/ ~/.cache/nvim/
+  rm -rf ~/.config/nvim ~/.config/starship.toml
 
   cd "$REPO_NAME"
-  stow --adopt .
+  stow .
   echo "Dotfiles installed successfully."
 else
   echo "Failed to clone the repository."
