@@ -10,6 +10,7 @@ cargo
 cmake
 curl
 diodon
+fastfetch
 fd-find
 feh
 flameshot
@@ -30,7 +31,6 @@ keychain
 libxkbcommon-dev
 make
 nautilus
-neofetch
 nodejs
 npm
 picom
