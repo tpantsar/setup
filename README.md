@@ -1,22 +1,15 @@
 # Linux Setup Tool 🛠️
 
-Linux System Tool that automates the setup and configuration of Ubuntu/Debian/Arch based Linux systems.
+Linux System Tool that automates the setup and configuration of Ubuntu/Debian/Arch based Linux systems.  
 It installs and configures packages, desktop environments, and various utilities to create a fully functional development environment.
 
 ## Features
 
 - 🔄 Automated system updates
-- 📦 Package installation by categories:
-  - System utilities
-  - Development tools
-  - System maintenance tools
-  - Desktop environment
-  - Office applications
-  - Media packages
-  - Fonts
-- 🖥️ GNOME desktop environment setup with tiling-like features
-- 🎮 Flatpak integration for specific applications
+- 📦 Package installation
 - ⚙️ Automatic service configuration
+- 🎮 Flatpak integration for specific applications
+- 🖥️ GNOME desktop environment setup with tiling-like features
 - 🔧 GNOME extensions and hotkey configuration
 
 ## Prerequisites

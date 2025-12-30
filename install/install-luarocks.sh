@@ -4,7 +4,6 @@
 PREFIX="/usr/local"
 LUA_INCLUDE_DIR="$PREFIX/include"
 
-# --- prerequisites check ---
 command -v curl >/dev/null 2>&1 || {
   echo "curl not found, install it first."
   exit 1
@@ -18,7 +17,7 @@ command -v make >/dev/null 2>&1 || {
   exit 1
 }
 
-# --- fetch latest release version ---
+# Fetch latest release version
 LUAROCKS_VERSION=$(curl -s https://api.github.com/repos/luarocks/luarocks/releases/latest | \grep -Po '"tag_name": *"v\K[^"]*')
 
 if [ -z "$LUAROCKS_VERSION" ]; then
