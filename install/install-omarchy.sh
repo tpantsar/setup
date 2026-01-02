@@ -24,6 +24,7 @@ if [ -d "$OMARCHY_PATH" ]; then
 
   echo -e "\nRunning Omarchy scripts ..."
   source $OMARCHY_INSTALL/helpers/logging.sh
+  run_logged $OMARCHY_INSTALL/preflight/first-run-mode.sh
   run_logged $OMARCHY_INSTALL/config/docker.sh
   bash "$OMARCHY_INSTALL/first-run/firewall.sh"
   echo -e "\nOmarchy installation and configuration complete!"

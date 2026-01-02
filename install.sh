@@ -30,9 +30,6 @@ run_exec "$SETUP_INSTALL/setup-python.sh"
 run_exec "$SETUP_INSTALL/set-shell.sh"
 run_exec "$SETUP_INSTALL/set-default-browser.sh"
 
-# Omarchy scripts
-run_exec "$SETUP_INSTALL/omarchy/install-omarchy.sh"
-
 # Distro-specific installation
 if [[ "$ID" == "arch" ]]; then
   echo "Arch Linux detected"
@@ -45,5 +42,8 @@ else
   echo "Unsupported distribution. Exiting."
   exit 1
 fi
+
+# Omarchy scripts
+run_exec "$SETUP_INSTALL/omarchy/install-omarchy.sh"
 
 echo "Setup complete! You may want to reboot your system."

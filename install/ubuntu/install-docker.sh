@@ -18,6 +18,16 @@ else
   echo "docker is already installed"
 fi
 
+# Configure UFW for Docker
+# https://github.com/chaifeng/ufw-docker?tab=readme-ov-file#ufw-docker-util
+if ! command -v ufw-docker &>/dev/null; then
+  echo "Installing ufw-docker ..."
+  sudo wget -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
+  sudo chmod +x /usr/local/bin/ufw-docker
+else
+  echo "ufw-docker is already installed"
+fi
+
 # Lazydocker - https://github.com/jesseduffield/lazydocker?tab=readme-ov-file#ubuntu
 if ! command -v lazydocker &>/dev/null; then
   echo "Installing lazydocker..."
