@@ -19,6 +19,9 @@ if [ -d "$OMARCHY_PATH" ]; then
   cd -
   echo "Updated Omarchy to the latest version on branch: ${OMARCHY_REF}"
 
+  sudo touch "$OMARCHY_INSTALL_LOG_FILE"
+  sudo chmod 666 "$OMARCHY_INSTALL_LOG_FILE"
+
   echo -e "\nRunning Omarchy scripts ..."
   source $OMARCHY_INSTALL/helpers/logging.sh
   run_logged $OMARCHY_INSTALL/config/docker.sh
