@@ -17,6 +17,7 @@ run_exec "$SETUP_INSTALL/bypass-sudo.sh"
 run_exec "$SETUP_INSTALL/add-ssh-key-gh.sh"
 run_exec "$SETUP_INSTALL/install-dotfiles.sh"
 #run_exec "$SETUP_INSTALL/install-luarocks.sh"
+run_exec "$SETUP_INSTALL/install-neovim.sh"
 run_exec "$SETUP_INSTALL/install-tmux.sh"
 run_exec "$SETUP_INSTALL/install-zsh.sh"
 run_exec "$SETUP_INSTALL/install-fzf.sh"
@@ -24,8 +25,13 @@ run_exec "$SETUP_INSTALL/install-gcalcli.sh"
 run_exec "$SETUP_INSTALL/setup-repos.sh"
 run_exec "$SETUP_INSTALL/setup-tmux.sh"
 run_exec "$SETUP_INSTALL/setup-onedrive.sh"
+run_exec "$SETUP_INSTALL/setup-node.sh"
+run_exec "$SETUP_INSTALL/setup-python.sh"
 run_exec "$SETUP_INSTALL/set-shell.sh"
 run_exec "$SETUP_INSTALL/set-default-browser.sh"
+
+# Omarchy scripts
+run_exec "$SETUP_INSTALL/omarchy/install-omarchy.sh"
 
 # Distro-specific installation
 if [[ "$ID" == "arch" ]]; then

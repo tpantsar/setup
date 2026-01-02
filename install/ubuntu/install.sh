@@ -32,13 +32,17 @@ sudo apt update && sudo apt upgrade -y
 mapfile -t packages < <(grep -v '^#' "$SETUP_INSTALL/ubuntu/packages.apt" | grep -v '^$')
 install_packages "${packages[@]}"
 
-# Install gnome specific things to make it like a tiling WM
-bash "$SETUP_INSTALL/ubuntu/gnome/gnome-extensions.sh"
-bash "$SETUP_INSTALL/ubuntu/gnome/gnome-hotkeys.sh"
-bash "$SETUP_INSTALL/ubuntu/gnome/gnome-settings.sh"
+# Ensure that local/bin directory exists for custom executables
+mkdir -p ~/.local/bin/
 
 # Custom scripts
 bash "$SETUP_INSTALL/ubuntu/install-custom.sh"
+bash "$SETUP_INSTALL/ubuntu/install-git.sh"
+bash "$SETUP_INSTALL/ubuntu/install-docker.sh"
+bash "$SETUP_INSTALL/ubuntu/install-alacritty.sh"
+bash "$SETUP_INSTALL/ubuntu/install-kitty.sh"
+bash "$SETUP_INSTALL/ubuntu/install-i3.sh"
+bash "$SETUP_INSTALL/ubuntu/install-onedrive.sh"
 # bash "$SETUP_INSTALL/ubuntu/install-flatpaks.sh"
 bash "$SETUP_INSTALL/ubuntu/install-fonts.sh"
 bash "$SETUP_INSTALL/ubuntu/install-homebrew.sh"
@@ -46,3 +50,8 @@ bash "$SETUP_INSTALL/ubuntu/install-homebrew.sh"
 # Other
 bash "$SETUP_INSTALL/ubuntu/services.sh"
 bash "$SETUP_INSTALL/ubuntu/brightnessctl.sh"
+
+# Install gnome specific things to make it like a tiling WM
+bash "$SETUP_INSTALL/ubuntu/gnome/gnome-extensions.sh"
+bash "$SETUP_INSTALL/ubuntu/gnome/gnome-hotkeys.sh"
+bash "$SETUP_INSTALL/ubuntu/gnome/gnome-settings.sh"
