@@ -10,7 +10,6 @@ cargo
 cmake
 curl
 diodon
-fastfetch
 fd-find
 feh
 flameshot
