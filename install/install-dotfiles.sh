@@ -44,8 +44,14 @@ fi
 
 # Check if the clone was successful
 if [ -d "$REPO_TARGET" ]; then
-  echo "removing old configs"
-  rm -rf ~/.config/nvim ~/.config/starship.toml
+  echo "backing up old configs..."
+  mv ~/.bashrc ~/.bashrc.bak
+  mv ~/.zshrc ~/.zshrc.bak
+  mv ~/.config/alacritty ~/.config/alacritty.bak
+  mv ~/.config/kitty ~/.config/kitty.bak
+  mv ~/.config/i3 ~/.config/i3.bak
+  mv ~/.config/nvim ~/.config/nvim.bak
+  mv ~/.config/starship.toml ~/.config/starship.toml.bak
 
   cd "$REPO_NAME"
   stow .
