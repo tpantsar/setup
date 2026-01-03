@@ -9,7 +9,12 @@ if ! command -v git &>/dev/null; then
 fi
 
 if ! command -v make &>/dev/null; then
-  echo "Make is not installed. Please install Make and rerun the script."
+  echo "make is not installed. Please install make and rerun the script."
+  exit 1
+fi
+
+if ! command -v cmake &>/dev/null; then
+  echo "cmake is not installed. Please install cmake and rerun the script."
   exit 1
 fi
 
