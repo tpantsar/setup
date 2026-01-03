@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://docs.docker.com/engine/install/linux-postinstall/
 
 USER_TO_ADD="${1:-$USER}"
 SUDOERS_FILE="/etc/sudoers.d/$USER_TO_ADD"

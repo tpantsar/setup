@@ -39,3 +39,7 @@ Follow the prompts to select the packages you want to install.
 The script will handle the rest of the setup process.
 
 After the setup is complete, you can reboot your system to see the changes.
+
+## Resources
+
+- [Linux post-installation steps for Docker Engine](https://docs.docker.com/engine/install/linux-postinstall/)
