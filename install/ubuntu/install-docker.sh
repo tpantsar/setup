@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Docker - https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
+# Docker
+# https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
+# https://docs.docker.com/engine/install/linux-postinstall/
 if ! command -v docker &>/dev/null; then
   echo "Installing docker ..."
   curl -fsSL https://get.docker.com -o get-docker.sh
@@ -12,6 +14,7 @@ if ! command -v docker &>/dev/null; then
   # Add sudo permissions to your user
   sudo groupadd docker
   sudo usermod -aG docker "$USER"
+  newgrp docker
   groups | grep -i docker
   /usr/bin/docker ps
 else
