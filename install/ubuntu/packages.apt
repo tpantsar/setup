@@ -10,7 +10,6 @@ cargo
 cmake
 curl
 diodon
-fd-find
 feh
 flameshot
 flatpak

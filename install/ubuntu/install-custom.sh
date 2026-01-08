@@ -25,6 +25,18 @@ else
   echo "eza is already installed"
 fi
 
+# fd: https://github.com/sharkdp/fd?tab=readme-ov-file#installation
+if ! command -v fd &>/dev/null; then
+  echo "Installing fd..."
+  cargo install fd-find
+
+  # Test fd executable
+  which fd
+  fd --version
+else
+  echo "fd is already installed"
+fi
+
 if ! command -v tree-sitter &>/dev/null; then
   echo "Installing tree-sitter..."
   cargo install --locked tree-sitter-cli
