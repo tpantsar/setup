@@ -21,7 +21,8 @@ if [ ! -f "$CONFIG_DIR/config" ]; then
   # Sync the OneDrive account data
   # --sync does a one-time sync
   # --monitor keeps the application running and monitoring for changes both local and remote
-  # onedrive --confdir ~/.config/onedrive-personal/ --monitor --verbose
+  echo "Performing initial OneDrive sync on ${CONFIG_DIR} ..."
+  onedrive --confdir "$CONFIG_DIR" --sync --verbose
 
   # Enable service in systemd
   sudo cp /usr/lib/systemd/user/onedrive.service /usr/lib/systemd/user/$SERVICE_NAME
