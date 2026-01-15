@@ -10,6 +10,8 @@ thunderbird
 keepassxc
 firefox
 xclip
+perl-file-homedir
+perl-yaml-tiny
 stow
 tmux
 tree

@@ -27,6 +27,8 @@ jq
 keepassxc
 keychain
 libxkbcommon-dev
+libyaml-tiny-perl
+libfile-homedir-perl
 make
 nautilus
 nodejs
