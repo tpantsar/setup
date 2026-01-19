@@ -37,6 +37,7 @@ mkdir -p ~/.local/bin/
 
 # Custom scripts
 bash "$SETUP_INSTALL/ubuntu/install-custom.sh"
+bash "$SETUP_INSTALL/ubuntu/install-firefox.sh"
 bash "$SETUP_INSTALL/ubuntu/install-curl.sh"
 bash "$SETUP_INSTALL/ubuntu/install-git.sh"
 bash "$SETUP_INSTALL/ubuntu/install-docker.sh"
