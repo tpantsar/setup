@@ -12,6 +12,7 @@ export SETUP_INSTALL="$SETUP_PATH/install"
 source "$SETUP_INSTALL/utils.sh"
 
 # Install
+run_exec "$SETUP_INSTALL/setup-permissions.sh"
 run_exec "$SETUP_INSTALL/clone-repo.sh"
 run_exec "$SETUP_INSTALL/bypass-sudo.sh"
 run_exec "$SETUP_INSTALL/add-ssh-key-gh.sh"
