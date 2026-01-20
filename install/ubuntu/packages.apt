@@ -37,6 +37,7 @@ picom
 pinentry-tty
 pipx
 polybar
+pulseaudio
 python3-pip
 python3-venv
 ripgrep
