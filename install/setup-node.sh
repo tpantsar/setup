@@ -18,5 +18,9 @@ else
   curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v${LATEST_VERSION}/install.sh" | bash
 fi
 
+nvm install --lts
+nvm install-latest-npm
+nvm use --lts
+
 # Install npm packages
 npm install -g @openai/codex
