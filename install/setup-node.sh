@@ -10,6 +10,7 @@ fi
 
 # Install nvm (Node Version Manager) - https://github.com/nvm-sh/nvm#installing-and-updating
 # nvm is a shell function, not a standalone binary
+# nvm's default behavior installs global tools per Node version.
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
   echo "nvm is already installed for the user"
 else
@@ -27,3 +28,12 @@ nvm use --lts
 
 # Install npm packages
 npm install -g @openai/codex
+
+echo "Node version: $(node --version)"
+echo "npm version: $(npm --version)"
+
+echo "Global npm prefix: "
+npm config get prefix
+
+echo "Full npm config: "
+npm config list -l
