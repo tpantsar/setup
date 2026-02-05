@@ -52,24 +52,3 @@ if ! command -v starship &>/dev/null; then
 else
   echo "starship is already installed"
 fi
-
-# yazi - https://github.com/sxyazi/yazi
-# https://yazi-rs.github.io/docs/installation#source
-if ! command -v yazi &>/dev/null; then
-  echo "Installing yazi ..."
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  rustup update
-
-  # Clone and build yazi from source
-  git clone --depth=1 https://github.com/sxyazi/yazi.git ~/yazi
-  cd ~/yazi
-  cargo build --release --locked
-
-  # Add yazi and ya to your $PATH
-  sudo mv target/release/yazi target/release/ya /usr/local/bin/
-
-  # Check version
-  yazi -V
-else
-  echo "yazi is already installed"
-fi
