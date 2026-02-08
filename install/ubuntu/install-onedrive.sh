@@ -32,15 +32,17 @@ if ! command -v onedrive &>/dev/null; then
   echo "Cloning and building onedrive from source ..."
   git clone https://github.com/abraunegg/onedrive.git ~/onedrive
 
+  echo "Building and installing onedrive to /usr/local/bin/onedrive ..."
   cd ~/onedrive
-  ./configure
+  ./configure --prefix=/usr/local
   make clean
   make
   sudo make install
 
   # Test onedrive executable
-  which onedrive
-  onedrive --version
+  echo "Testing onedrive installation ..."
+  ls -l "$(command -v onedrive)"
+  echo "onedrive version: $(onedrive --version)"
 
   # Enable onedrive on systemctl
   sudo ps aufxw | grep onedrive
@@ -49,6 +51,12 @@ if ! command -v onedrive &>/dev/null; then
   echo "Deactivating dmd environment ..."
   deactivate
   echo "onedrive installation completed."
+
+  # sudo make uninstall
+  # sudo rm -f /usr/local/bin/onedrive
+  # hash -r  # refresh shell command lookup cache
+  # command -v onedrive
+  # ls -l "$(command -v onedrive)"
 else
   echo "onedrive is already installed"
 fi
