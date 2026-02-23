@@ -29,6 +29,7 @@ keychain
 libxkbcommon-dev
 libyaml-tiny-perl
 libfile-homedir-perl
+libsystemd-dev
 make
 nautilus
 nodejs
@@ -38,6 +39,7 @@ pinentry-tty
 pipx
 polybar
 pulseaudio
+pkg-config
 python3-pip
 python3-venv
 ripgrep
