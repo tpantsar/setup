@@ -1,8 +1,10 @@
 #!/bin/bash
 
+BROWSER="firefox.desktop"
+
 if command -v xdg-settings >/dev/null 2>&1; then
-  if xdg-settings set default-web-browser firefox.desktop; then
-    echo "Default browser set to Firefox"
+  if xdg-settings set default-web-browser $BROWSER; then
+    echo "Default browser set to $BROWSER"
   else
     echo "xdg-settings failed; skipping default browser setup"
   fi

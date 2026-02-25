@@ -5,6 +5,10 @@
 sudo chown root:root /usr/lib/systemd /usr/lib/systemd/user
 sudo chmod 755 /usr/lib/systemd /usr/lib/systemd/user
 
+echo "Settings permissions for applications and mimeapps"
+sudo chown "$USER:$USER" ~/.config ~/.local ~/.local/share ~/.local/share/applications
+sudo chown "$USER:$USER" ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list 2>/dev/null
+
 # ensure everything under the user unit tree is readable and dirs are traversable
 sudo chmod -R a+rX /usr/lib/systemd/user
 echo "Permissions for systemd directories have been set."

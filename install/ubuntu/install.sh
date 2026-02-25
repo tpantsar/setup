@@ -36,6 +36,7 @@ install_packages "${packages[@]}"
 mkdir -p ~/.local/bin/
 
 # Custom scripts
+bash "$SETUP_INSTALL/ubuntu/base.sh"
 bash "$SETUP_INSTALL/ubuntu/install-custom.sh"
 bash "$SETUP_INSTALL/ubuntu/install-firefox.sh"
 bash "$SETUP_INSTALL/ubuntu/install-curl.sh"
