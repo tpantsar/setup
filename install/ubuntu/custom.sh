@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# The common fix on Debian/Ubuntu and derivatives: set x-www-browser
+echo "Setting default web browser alternatives..."
+sudo update-alternatives --config x-www-browser
+sudo update-alternatives --config www-browser
+sudo update-alternatives --config gnome-www-browser
+
 # bat -> batcat symlink
 if ! command -v bat &>/dev/null; then
   ln -s /usr/bin/batcat ~/.local/bin/bat

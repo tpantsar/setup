@@ -1,16 +1,18 @@
 # Linux Setup Tool 🛠️
 
-Linux System Tool that automates the setup and configuration of Ubuntu/Debian/Arch based Linux systems.  
-It installs and configures packages, desktop environments, and various utilities to create a fully functional development environment.
+Linux System Tool that automates the setup and configuration of Ubuntu/Debian/Arch based Linux
+systems.
+
+It installs and configures packages, desktop environments, and various utilities to create a fully
+functional development environment.
 
 ## Features
 
-- 🔄 Automated system updates
-- 📦 Package installation
-- ⚙️ Automatic service configuration
-- 🎮 Flatpak integration for specific applications
-- 🖥️ GNOME desktop environment setup with tiling-like features
-- 🔧 GNOME extensions and hotkey configuration
+The repository has two installation entrypoints:
+
+- `./base.sh` installs a minimal, server-safe CLI foundation.
+- `./install.sh` runs the base install first and then adds the full utility layer with tools such as
+  `lazygit`, `lazydocker`, `fzf`, `uv`, `nvm`, `yazi`, and related developer utilities.
 
 ## Prerequisites
 
@@ -20,7 +22,15 @@ It installs and configures packages, desktop environments, and various utilities
 
 ## Installation
 
-From source:
+Base install
+
+```bash
+git clone https://github.com/tpantsar/setup.git ~/setup/
+cd ~/setup/
+./base.sh
+```
+
+Full utility install
 
 ```bash
 git clone https://github.com/tpantsar/setup.git ~/setup/
@@ -28,17 +38,18 @@ cd ~/setup/
 ./install.sh
 ```
 
-Install with curl:
+With curl
 
-```bash
+```sh
+# base
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/base.sh)" "" --unattended
+
+# full
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
 ```
 
-Follow the prompts to select the packages you want to install.
-
-The script will handle the rest of the setup process.
-
-After the setup is complete, you can reboot your system to see the changes.
+The full install reuses the base install, so you can use `./base.sh` for lightweight server
+provisioning and `./install.sh` to add the extra utility toolchain later.
 
 ## Resources
 

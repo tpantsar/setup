@@ -24,3 +24,8 @@ install_packages() {
     echo "All packages already installed."
   fi
 }
+
+packages_from_file() {
+  local package_file="$1"
+  grep -v '^#' "$package_file" | grep -v '^$'
+}
