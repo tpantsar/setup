@@ -22,7 +22,7 @@ fi
 install_deps() {
   if command -v apt-get &>/dev/null; then
     echo "Debian/Ubuntu detected. Installing dependencies via apt-get"
-    sudo apt-get install ninja-build gettext cmake curl build-essential git
+    sudo apt-get install -y ninja-build gettext cmake curl build-essential git
   elif command -v pacman &>/dev/null; then
     echo "Arch detected. Installing dependencies via pacman"
     sudo pacman -S --noconfirm --needed base-devel cmake ninja curl git
@@ -37,11 +37,11 @@ install_deps() {
 if ! command -v nvim &>/dev/null; then
   echo "Building and installing Neovim (stable release) from source"
   install_deps
-  rm -rf ~/neovim/
+  rm -rf "$HOME/neovim/"
 
   # Shallow clone only the stable branch
-  git clone --branch stable --single-branch --depth 1 https://github.com/neovim/neovim ~/neovim
-  cd ~/neovim
+  git clone --branch stable --single-branch --depth 1 https://github.com/neovim/neovim "$HOME/neovim"
+  cd "$HOME/neovim"
 
   # Build with Release type
   make CMAKE_BUILD_TYPE=Release

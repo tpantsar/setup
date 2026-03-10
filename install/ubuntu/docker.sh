@@ -14,11 +14,9 @@ if ! command -v docker &>/dev/null; then
   /usr/bin/docker version
 
   # Add sudo permissions to your user
-  sudo groupadd docker
+  sudo groupadd docker 2>/dev/null || true
   sudo usermod -aG docker "$USER"
-  newgrp docker
-  groups | grep -i docker
-  /usr/bin/docker ps
+  echo "Added $USER to the docker group. Start a new login session before using docker without sudo."
 else
   echo "docker is already installed"
 fi

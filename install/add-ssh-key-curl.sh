@@ -8,7 +8,10 @@ TITLE="${TITLE:-$(hostname)-$(date +%Y%m%d-%H%M%S)}"
 # --- Check for GitHub token ---
 if [[ -z "${GITHUB_TOKEN:-}" ]]; then
   echo "Please set GITHUB_TOKEN as an environment variable with 'admin:public_key' scope."
-  echo "Example: export GITHUB_TOKEN=ghp_yourtokenhere"
+  echo "You can generate a token at: https://github.com/settings/personal-access-tokens/new"
+  echo "Add account permissions to Git SSH keys read and write"
+  echo "export GITHUB_TOKEN=githup_pat_"
+  echo "Check SSH keys at: https://github.com/settings/keys"
   exit 1
 fi
 

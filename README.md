@@ -1,18 +1,17 @@
-# Linux Setup Tool 🛠️
+# Linux Setup Tool
 
-Linux System Tool that automates the setup and configuration of Ubuntu/Debian/Arch based Linux
-systems.
+Linux bootstrap scripts for Ubuntu, Debian, and Arch systems.
 
-It installs and configures packages, desktop environments, and various utilities to create a fully
-functional development environment.
+The repository is organized into a minimal base layer for servers and a fuller CLI utility layer
+for developer machines and admin boxes.
 
 ## Features
 
 The repository has two installation entrypoints:
 
-- `./base.sh` installs a minimal, server-safe CLI foundation.
-- `./install.sh` runs the base install first and then adds the full utility layer with tools such as
-  `lazygit`, `lazydocker`, `fzf`, `uv`, `nvm`, `yazi`, and related developer utilities.
+- `./base.sh` installs a small, server-safe CLI foundation.
+- `./install.sh` runs the base install first and then adds extra CLI utilities such as `lazygit`,
+  `lazydocker`, `fzf`, `uv`, `yazi`, Docker tooling, and related helpers.
 
 ## Prerequisites
 
@@ -50,6 +49,23 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/inst
 
 The full install reuses the base install, so you can use `./base.sh` for lightweight server
 provisioning and `./install.sh` to add the extra utility toolchain later.
+
+## Layering
+
+`base.sh` focuses on common packages that are safe defaults on Linux servers:
+
+- package manager refresh
+- `curl`, `git`, `ripgrep`, `tmux`, `vim`, `tree`, `jq`
+- Python venv and pip support
+
+`install.sh` adds optional utility tooling on top of that base:
+
+- `lazygit`, `lazydocker`, Docker
+- `fzf`, `yazi`, `eza`, `zoxide`, `starship`
+- `uv`, Go, Neovim, GitHub/GitLab CLIs
+
+Desktop environment setup, GUI apps, and personal workstation customization are intentionally not
+part of the default install path anymore.
 
 ## Resources
 

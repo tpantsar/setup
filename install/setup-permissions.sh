@@ -1,6 +1,12 @@
 #!/bin/bash
 # Set correct permissions for systemd directories
 
+mkdir -p \
+  "$HOME/.config" \
+  "$HOME/.local" \
+  "$HOME/.local/share" \
+  "$HOME/.local/share/applications"
+
 # These directories should be readable/traversable by normal users
 sudo chown root:root /usr/lib/systemd /usr/lib/systemd/user
 sudo chmod 755 /usr/lib/systemd /usr/lib/systemd/user
@@ -19,9 +25,9 @@ echo "Permissions for systemd directories have been set."
 
 echo "Verifying systemd and PulseAudio status:"
 systemctl --user status --no-pager
-pactl info
 sudo systemctl status snapd snapd.socket --no-pager
 echo "If there are permission issues with systemd or PulseAudio, consider reinstalling systemd and dbus."
+echo "Try 'pactl info' to check if PulseAudio is working properly. If there are permission issues, you may see errors related to connecting to the PulseAudio daemon."
 
 echo
 echo "Checking systemd-logind status:"

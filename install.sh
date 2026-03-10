@@ -1,11 +1,36 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
 set -eEo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export SETUP_PATH="${SETUP_PATH:-$SCRIPT_DIR}"
-export SETUP_INSTALL="${SETUP_INSTALL:-$SETUP_PATH/install}"
+REPO_PATH="${SETUP_PATH:-$HOME/setup}"
+
+if [[ -d "$SCRIPT_DIR/install" ]]; then
+  export SETUP_PATH="${SETUP_PATH:-$SCRIPT_DIR}"
+  export SETUP_INSTALL="${SETUP_INSTALL:-$SETUP_PATH/install}"
+else
+  if ! command -v git >/dev/null 2>&1; then
+    source /etc/os-release
+    case "$ID" in
+      arch)
+        sudo pacman -Sy --noconfirm git
+        ;;
+      ubuntu | debian)
+        sudo apt-get update
+        sudo apt-get install -y git
+        ;;
+      *)
+        echo "Unsupported distribution: $ID"
+        exit 1
+        ;;
+    esac
+  fi
+
+  export SETUP_PATH="$REPO_PATH"
+  bash "$SCRIPT_DIR/install/clone-repo.sh"
+
+  exec bash "$REPO_PATH/install.sh" "$@"
+fi
 
 source /etc/os-release
 

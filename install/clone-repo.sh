@@ -1,8 +1,11 @@
 #!/bin/bash
+
+set -eEo pipefail
+
 # Clones or updates the setup repository
 
 REPO_URL="https://github.com/tpantsar/setup.git"
-REPO_PATH="$HOME/setup"
+REPO_PATH="${SETUP_PATH:-$HOME/setup}"
 
 mkdir -p "$REPO_PATH" 2>/dev/null || true
 

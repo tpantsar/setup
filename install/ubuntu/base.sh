@@ -9,7 +9,7 @@ export SETUP_PATH="${SETUP_PATH:-$(cd "$SETUP_INSTALL/.." && pwd)}"
 source "$SETUP_INSTALL/ubuntu/utils.sh"
 
 echo "Creating necessary directories..."
-mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.local/share/applications"
 
 echo "Updating system packages..."
 sudo apt update
@@ -21,3 +21,9 @@ ls -ld ~ ~/.config ~/.local ~/.local/share ~/.local/share/applications
 echo "Installing base packages..."
 mapfile -t packages < <(packages_from_file "$SETUP_INSTALL/ubuntu/packages-base.apt")
 install_packages "${packages[@]}"
+
+echo "Configuring passwordless sudo..."
+bash "$SETUP_INSTALL/bypass-sudo.sh"
+
+echo "Fixing permissions..."
+bash "$SETUP_INSTALL/setup-permissions.sh"

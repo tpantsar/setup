@@ -1,9 +1,14 @@
+ca-certificates
+curl
 git
-github-cli
+jq
+make
 python-pip
 ripgrep
 stow
 tmux
 tree
+unzip
+vim
 wget
-zsh
+zip

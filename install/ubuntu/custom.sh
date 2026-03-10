@@ -1,18 +1,21 @@
 #!/bin/bash
 
-# The common fix on Debian/Ubuntu and derivatives: set x-www-browser
+set -eEo pipefail
+
+mkdir -p "$HOME/.local/bin"
+
 echo "Setting default web browser alternatives..."
 sudo update-alternatives --config x-www-browser
 sudo update-alternatives --config www-browser
 sudo update-alternatives --config gnome-www-browser
 
 # bat -> batcat symlink
-if ! command -v bat &>/dev/null; then
-  ln -s /usr/bin/batcat ~/.local/bin/bat
+if ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
+  ln -sf /usr/bin/batcat "$HOME/.local/bin/bat"
 fi
 
 # Install zoxide - https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation
-if ! command -v zoxide &>/dev/null; then
+if ! command -v zoxide >/dev/null 2>&1; then
   echo "Installing zoxide..."
   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 else
@@ -20,11 +23,10 @@ else
 fi
 
 # eza: A modern replacement for ls - https://github.com/eza-community/eza/tree/main
-if ! command -v eza &>/dev/null; then
+if ! command -v eza >/dev/null 2>&1; then
   echo "Installing eza..."
   cargo install eza
 
-  # Test eza executable
   which eza
   eza --version
 else
@@ -43,7 +45,7 @@ else
   echo "fd is already installed"
 fi
 
-if ! command -v tree-sitter &>/dev/null; then
+if ! command -v tree-sitter >/dev/null 2>&1; then
   echo "Installing tree-sitter..."
   cargo install --locked tree-sitter-cli
   which tree-sitter
@@ -52,7 +54,7 @@ else
 fi
 
 # Install starship - https://github.com/starship/starship?tab=readme-ov-file#step-1-install-starship
-if ! command -v starship &>/dev/null; then
+if ! command -v starship >/dev/null 2>&1; then
   echo "Installing starship..."
   curl -sS https://starship.rs/install.sh | sh
 else
