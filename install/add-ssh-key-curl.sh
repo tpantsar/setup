@@ -1,7 +1,8 @@
 #!/bin/bash
 # Automatically generate an SSH key (if missing) and add it to GitHub via API.
 
-KEY_PATH="${HOME}/.ssh/id_ed25519"
+SSH_METHOD="ed25519" # ed25519 or rsa
+SSH_KEY="${SSH_KEY:-${HOME}/.ssh/id_${SSH_METHOD}}"
 EMAIL="${EMAIL:-$(git config user.email || echo "tomi.pantsar@gmail.com")}"
 TITLE="${TITLE:-$(hostname)-$(date +%Y%m%d-%H%M%S)}"
 
@@ -16,15 +17,15 @@ if [[ -z "${GITHUB_TOKEN:-}" ]]; then
 fi
 
 # --- Generate SSH key if missing ---
-if [[ ! -f "${KEY_PATH}" ]]; then
-  echo "Generating a new SSH key at ${KEY_PATH}..."
+if [[ ! -f "${SSH_KEY}" ]]; then
+  echo "Generating a new SSH key at ${SSH_KEY}..."
   mkdir -p ~/.ssh
-  ssh-keygen -t ed25519 -C "${EMAIL}" -f "${KEY_PATH}" -N ""
+  ssh-keygen -t ed25519 -C "${EMAIL}" -f "${SSH_KEY}" -N ""
 else
-  echo "SSH key already exists at ${KEY_PATH}"
+  echo "SSH key already exists at ${SSH_KEY}"
 fi
 
-PUB_KEY=$(cat "${KEY_PATH}.pub")
+PUB_KEY=$(cat "${SSH_KEY}.pub")
 
 # --- Upload key to GitHub ---
 echo "Uploading SSH key to GitHub..."

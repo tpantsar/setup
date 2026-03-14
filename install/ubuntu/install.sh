@@ -17,7 +17,6 @@ install_packages "${packages[@]}"
 # Ensure ~/.local/bin exists for user-installed binaries
 mkdir -p "$HOME/.local/bin"
 
-run_exec "$SETUP_INSTALL/fzf.sh"
 run_exec "$SETUP_INSTALL/neovim.sh"
 run_exec "$SETUP_INSTALL/setup-python.sh"
 run_exec "$SETUP_INSTALL/ubuntu/custom.sh"

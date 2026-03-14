@@ -16,6 +16,6 @@ if [ -d "$REPO_TARGET" ]; then
   ~/dotfiles/bin/tp-stow
   echo "Dotfiles installed successfully."
 else
-  echo "Failed to clone the repository."
+  echo "Failed to clone dotfiles repository."
   exit 1
 fi

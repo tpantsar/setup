@@ -7,8 +7,6 @@ jq
 make
 network-manager
 pkg-config
-python3-pip
-python3-venv
 ripgrep
 sqlite3
 stow

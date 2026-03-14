@@ -12,8 +12,10 @@ if ! command -v git &>/dev/null; then
 fi
 
 if [ -d "$HOME/.fzf" ]; then
-  echo "Removing existing ~/.fzf directory ..."
-  rm -rf "$HOME/.fzf"
+  echo "Updating existing ~/.fzf directory ..."
+  cd "$HOME/.fzf"
+  git pull --rebase --autostash --depth 1 origin master
+  git checkout master
 fi
 
 echo "Cloning and installing fzf ..."

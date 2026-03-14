@@ -18,6 +18,8 @@ libyaml-tiny-perl
 ninja-build
 pinentry-tty
 pipx
+python3-pip
+python3-venv
 software-properties-common
 tldr
 zsh

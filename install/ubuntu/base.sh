@@ -6,6 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export SETUP_INSTALL="${SETUP_INSTALL:-$(cd "$SCRIPT_DIR/.." && pwd)}"
 export SETUP_PATH="${SETUP_PATH:-$(cd "$SETUP_INSTALL/.." && pwd)}"
 
+source "$SETUP_INSTALL/utils.sh"
 source "$SETUP_INSTALL/ubuntu/utils.sh"
 
 echo "Creating necessary directories..."
@@ -27,3 +28,7 @@ bash "$SETUP_INSTALL/bypass-sudo.sh"
 
 echo "Fixing permissions..."
 bash "$SETUP_INSTALL/setup-permissions.sh"
+
+run_exec "$SETUP_INSTALL/ubuntu/fzf.sh"
+run_exec "$SETUP_INSTALL/ubuntu/eza.sh"
+run_exec "$SETUP_INSTALL/ubuntu/starship.sh"

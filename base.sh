@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -eEo pipefail
+source /etc/os-release
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_PATH="${SETUP_PATH:-$HOME/setup}"
@@ -10,7 +11,6 @@ if [[ -d "$SCRIPT_DIR/install" ]]; then
   export SETUP_INSTALL="${SETUP_INSTALL:-$SETUP_PATH/install}"
 else
   if ! command -v git >/dev/null 2>&1; then
-    source /etc/os-release
     case "$ID" in
       arch)
         sudo pacman -Sy --noconfirm git
@@ -32,7 +32,8 @@ else
   exec bash "$REPO_PATH/base.sh" "$@"
 fi
 
-source /etc/os-release
+# dotfiles
+bash "$SETUP_INSTALL/install/dotfiles.sh"
 
 case "$ID" in
   arch)
