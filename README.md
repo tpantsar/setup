@@ -2,8 +2,9 @@
 
 Linux bootstrap scripts for Ubuntu, Debian, and Arch systems.
 
-The repository is organized into a minimal base layer for servers and a fuller CLI utility layer
-for developer machines and admin boxes.
+The repository is organized into a minimal base layer for servers and a full CLI utility layer for
+desktop setups. The installation can be done from source or via a one-liner curl command, with
+options for unattended mode and selective installation.
 
 ## Features
 
@@ -18,22 +19,48 @@ The repository has two installation entrypoints:
 - A fresh Ubuntu/Debian or Arch Linux installation
 - Internet connection
 - sudo privileges
+- SSH connectivity for remote servers (GitHub)
+
+## Clone the repository
+
+```sh
+git clone https://github.com/tpantsar/setup.git ~/setup
+cd ~/setup
+```
+
+## SSH keys
+
+Setup SSH keys for GitHub if you haven't already:
+
+With curl:
+
+- You can generate a token at: https://github.com/settings/personal-access-tokens/new
+- Add account permissions to Git SSH keys read and write
+- Check SSH keys at: https://github.com/settings/keys
+- Add `GITHUB_TOKEN` to your environment variables:
+
+```sh
+export GITHUB_TOKEN=githup_pat
+install/ssh-curl.sh
+```
+
+With GitHub CLI:
+
+```sh
+install/ssh-gh.sh
+```
 
 ## Install from source
 
 Base install:
 
 ```bash
-git clone https://github.com/tpantsar/setup.git ~/setup/
-cd ~/setup/
 ./install.sh --mode base
 ```
 
 Full utility install:
 
 ```bash
-git clone https://github.com/tpantsar/setup.git ~/setup/
-cd ~/setup/
 ./install.sh
 ```
 
@@ -41,6 +68,7 @@ Examples:
 
 ```sh
 ./install.sh
+./install.sh --help
 ./install.sh --mode base
 MODE=base ./install.sh
 ```
@@ -61,13 +89,13 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/inst
 
 ## Layering
 
-`base.sh` focuses on common packages that are safe defaults on Linux servers:
+`./install.sh --mode base` focuses on common packages that are safe defaults on Linux servers:
 
 - package manager refresh
 - `curl`, `git`, `ripgrep`, `tmux`, `vim`, `tree`, `jq`
 - Python venv and pip support
 
-`install.sh` adds optional utility tooling on top of that base:
+`./install.sh --mode full` adds optional utility tooling on top of that base:
 
 - `lazygit`, `lazydocker`, Docker
 - `fzf`, `yazi`, `eza`, `zoxide`, `starship`
