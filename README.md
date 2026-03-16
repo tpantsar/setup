@@ -19,17 +19,17 @@ The repository has two installation entrypoints:
 - Internet connection
 - sudo privileges
 
-## Installation
+## Install from source
 
-Base install
+Base install:
 
 ```bash
 git clone https://github.com/tpantsar/setup.git ~/setup/
 cd ~/setup/
-./base.sh
+./install.sh --mode base
 ```
 
-Full utility install
+Full utility install:
 
 ```bash
 git clone https://github.com/tpantsar/setup.git ~/setup/
@@ -37,18 +37,27 @@ cd ~/setup/
 ./install.sh
 ```
 
-With curl
+Examples:
 
 ```sh
-# base
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/base.sh)" "" --unattended
-
-# full
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
+./install.sh
+./install.sh --mode base
+MODE=base ./install.sh
 ```
 
-The full install reuses the base install, so you can use `./base.sh` for lightweight server
-provisioning and `./install.sh` to add the extra utility toolchain later.
+## Install with curl
+
+Base install:
+
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended --mode base
+```
+
+Full install:
+
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
+```
 
 ## Layering
 

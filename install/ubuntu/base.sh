@@ -14,7 +14,7 @@ mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.local/share/applications"
 
 echo "Updating system packages..."
 sudo apt update
-sudo apt upgrade -y
+sudo apt upgrade -y --allow-downgrades
 
 echo "Checking config permissions..."
 ls -ld ~ ~/.config ~/.local ~/.local/share ~/.local/share/applications
