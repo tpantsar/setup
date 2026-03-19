@@ -95,7 +95,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/inst
 - `curl`, `git`, `ripgrep`, `tmux`, `vim`, `tree`, `jq`
 - Python venv and pip support
 
-`./install.sh --mode full` adds optional utility tooling on top of that base:
+`./install.sh --mode` adds optional utility tooling on top of that base:
 
 - `lazygit`, `lazydocker`, Docker
 - `fzf`, `yazi`, `eza`, `zoxide`, `starship`

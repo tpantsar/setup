@@ -17,7 +17,7 @@ EOF
 normalize_mode() {
   case "${1,,}" in
     full | desktop)
-      echo "full"
+      echo "install"
       ;;
     base | basic | server)
       echo "base"
