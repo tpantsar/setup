@@ -96,6 +96,11 @@ fi
 bash "$SETUP_INSTALL/dotfiles.sh"
 bash "$SETUP_INSTALL/tailscale.sh"
 
+if [[ "$MODE" == "install" ]]; then
+  echo "Installing apps using MODE=$MODE"
+  bash "$SETUP_INSTALL/gcalcli.sh"
+fi
+
 source /etc/os-release
 case "$ID" in
   arch)
