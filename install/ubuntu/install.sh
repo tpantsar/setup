@@ -17,13 +17,23 @@ install_packages "${packages[@]}"
 # Ensure ~/.local/bin exists for user-installed binaries
 mkdir -p "$HOME/.local/bin"
 
+echo "Setting default web browser alternatives..."
+sudo update-alternatives --config x-www-browser
+sudo update-alternatives --config www-browser
+sudo update-alternatives --config gnome-www-browser
+
 run_exec "$SETUP_INSTALL/neovim.sh"
 run_exec "$SETUP_INSTALL/setup-python.sh"
-run_exec "$SETUP_INSTALL/ubuntu/custom.sh"
 run_exec "$SETUP_INSTALL/ubuntu/lazygit.sh"
 run_exec "$SETUP_INSTALL/ubuntu/lazydocker.sh"
-run_exec "$SETUP_INSTALL/ubuntu/yazi.sh"
 run_exec "$SETUP_INSTALL/ubuntu/go.sh"
+
+# cargo
+run_exec "$SETUP_INSTALL/ubuntu/fd.sh"
+run_exec "$SETUP_INSTALL/ubuntu/yazi.sh"
+run_exec "$SETUP_INSTALL/ubuntu/treesitter.sh"
+
+# homebrew
 run_exec "$SETUP_INSTALL/ubuntu/gum.sh"
 run_exec "$SETUP_INSTALL/ubuntu/lf.sh"
 run_exec "$SETUP_INSTALL/ubuntu/sesh.sh"
