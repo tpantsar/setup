@@ -5,7 +5,9 @@ if command -v tailscale &>/dev/null; then
   exit 0
 fi
 
+echo "Installing tailscale ..."
 curl -fsSL https://tailscale.com/install.sh | sh
-sudo tailscale up
+echo "tailscale installed. Try running: sudo tailscale up"
 
+# sudo tailscale up
 # tailscale completion zsh

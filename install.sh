@@ -94,6 +94,7 @@ else
 fi
 
 bash "$SETUP_INSTALL/dotfiles.sh"
+bash "$SETUP_INSTALL/tailscale.sh"
 
 source /etc/os-release
 case "$ID" in
