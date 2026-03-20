@@ -3,21 +3,6 @@
 # Exit on any failure
 set -eEo pipefail
 
-if ! command -v git &>/dev/null; then
-  echo "Git is not installed. Please install Git and rerun the script."
-  exit 1
-fi
-
-if ! command -v make &>/dev/null; then
-  echo "make is not installed. Please install make and rerun the script."
-  exit 1
-fi
-
-if ! command -v cmake &>/dev/null; then
-  echo "cmake is not installed. Please install cmake and rerun the script."
-  exit 1
-fi
-
 # https://neovim.io/doc/build/#build-prerequisites
 install_deps() {
   if command -v apt-get &>/dev/null; then
