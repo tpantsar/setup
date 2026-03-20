@@ -29,6 +29,7 @@ bash "$SETUP_INSTALL/bypass-sudo.sh"
 echo "Fixing permissions..."
 bash "$SETUP_INSTALL/setup-permissions.sh"
 
+run_exec "$SETUP_INSTALL/ubuntu/docker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fzf.sh"
 run_exec "$SETUP_INSTALL/ubuntu/eza.sh"
 run_exec "$SETUP_INSTALL/ubuntu/starship.sh"
