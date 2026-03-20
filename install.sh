@@ -7,20 +7,21 @@ usage() {
 Usage: install.sh [--mode MODE]
 
 Modes:
-  full    Full desktop setup (default)
-  base    Basic server/base installation
+  base    Basic server/base installation (default)
+  full    Full desktop setup
 
-You can also set MODE=full or MODE=base.
+You can also set MODE=base or MODE=full
 EOF
 }
 
+# selects base.sh or install.sh
 normalize_mode() {
   case "${1,,}" in
-    full | desktop)
-      echo "install"
-      ;;
     base | basic | server)
       echo "base"
+      ;;
+    full | desktop)
+      echo "install"
       ;;
     *)
       echo "Invalid mode: $1" >&2
@@ -30,7 +31,7 @@ normalize_mode() {
   esac
 }
 
-MODE="${MODE:-full}"
+MODE="${MODE:-base}"
 POSITIONAL_ARGS=()
 
 while [[ $# -gt 0 ]]; do

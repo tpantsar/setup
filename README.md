@@ -55,13 +55,13 @@ install/ssh-gh.sh
 Base install:
 
 ```bash
-./install.sh --mode base
+./install.sh
 ```
 
 Full utility install:
 
 ```bash
-./install.sh
+./install.sh --mode full
 ```
 
 Examples:
@@ -69,8 +69,8 @@ Examples:
 ```sh
 ./install.sh
 ./install.sh --help
-./install.sh --mode base
-MODE=base ./install.sh
+./install.sh --mode full
+MODE=full ./install.sh
 ```
 
 ## Install with curl
@@ -78,31 +78,32 @@ MODE=base ./install.sh
 Base install:
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended --mode base
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
 ```
 
 Full install:
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended --mode full
 ```
 
 ## Layering
 
-`./install.sh --mode base` focuses on common packages that are safe defaults on Linux servers:
+`./install.sh` focuses on common packages that are safe defaults on Linux servers:
 
+- Docker
 - package manager refresh
+- `fzf`, `eza`, `zoxide`, `starship`
 - `curl`, `git`, `ripgrep`, `tmux`, `vim`, `tree`, `jq`
 - Python venv and pip support
 
-`./install.sh --mode` adds optional utility tooling on top of that base:
+`./install.sh --mode full` adds optional utility tooling on top of that base:
 
-- `lazygit`, `lazydocker`, Docker
-- `fzf`, `yazi`, `eza`, `zoxide`, `starship`
+- `lazygit`, `lazydocker`, `yazi`
 - `uv`, Go, Neovim, GitHub/GitLab CLIs
 
 Desktop environment setup, GUI apps, and personal workstation customization are intentionally not
-part of the default install path anymore.
+part of the default install path.
 
 ## Resources
 
