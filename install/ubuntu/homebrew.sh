@@ -9,43 +9,7 @@ else
 fi
 
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
-  echo "Setting up Homebrew environment ..."
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-if ! command -v sesh &>/dev/null; then
-  echo "Installing sesh ..."
-  brew install sesh
-else
-  echo "sesh is already installed"
-fi
-
-if ! command -v delta &>/dev/null; then
-  echo "Installing git-delta ..."
-  brew install git-delta
-else
-  echo "git-delta is already installed"
-fi
-
-if ! command -v gum &>/dev/null; then
-  echo "Installing gum ..."
-  brew install gum
-else
-  echo "gum is already installed"
-fi
-
-# lf (terminal file manager)
-# https://github.com/gokcehan/lf
-if ! command -v lf &>/dev/null; then
-  echo "Installing lf (terminal file manager) ..."
-  brew install lf
-else
-  echo "lf is already installed"
-fi
-
-if ! command -v fastfetch &>/dev/null; then
-  echo "Installing fastfetch ..."
-  brew install fastfetch
-else
-  echo "fastfetch is already installed"
+  echo "Setting up Homebrew environment and dependencies ..."
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+  sudo apt-get install build-essential
 fi
