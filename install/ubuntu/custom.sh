@@ -9,14 +9,6 @@ sudo update-alternatives --config x-www-browser
 sudo update-alternatives --config www-browser
 sudo update-alternatives --config gnome-www-browser
 
-# Install zoxide - https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation
-if ! command -v zoxide >/dev/null 2>&1; then
-  echo "Installing zoxide..."
-  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-else
-  echo "zoxide is already installed"
-fi
-
 # fd: https://github.com/sharkdp/fd?tab=readme-ov-file#installation
 if ! command -v fd &>/dev/null; then
   echo "Installing fd..."
