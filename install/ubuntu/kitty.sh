@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install kitty - https://sw.kovidgoyal.net/kitty/binary/
+# https://sw.kovidgoyal.net/kitty/binary/
 # Do not copy the kitty binary out of the installation folder.
 # If you want to add it to your PATH, create a symlink in ~/.local/bin or /usr/bin or wherever.
 

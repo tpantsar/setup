@@ -24,6 +24,7 @@ sudo update-alternatives --config gnome-www-browser
 
 run_exec "$SETUP_INSTALL/neovim.sh"
 run_exec "$SETUP_INSTALL/setup-python.sh"
+run_exec "$SETUP_INSTALL/ubuntu/kitty.sh"
 run_exec "$SETUP_INSTALL/ubuntu/lazygit.sh"
 run_exec "$SETUP_INSTALL/ubuntu/lazydocker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/go.sh"
