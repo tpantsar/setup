@@ -30,6 +30,7 @@ run_exec "$SETUP_INSTALL/ubuntu/lazydocker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/go.sh"
 
 # cargo
+run_exec "$SETUP_INSTALL/ubuntu/alacritty-source.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fd.sh"
 run_exec "$SETUP_INSTALL/ubuntu/yazi.sh"
 run_exec "$SETUP_INSTALL/ubuntu/treesitter.sh"
