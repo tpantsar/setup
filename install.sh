@@ -93,11 +93,18 @@ else
   exec bash "$REPO_PATH/install.sh" --mode "$MODE" "$@"
 fi
 
+# server
+bash "$SETUP_INSTALL/bypass-sudo.sh"
+bash "$SETUP_INSTALL/setup-permissions.sh"
 bash "$SETUP_INSTALL/dotfiles.sh"
 bash "$SETUP_INSTALL/tailscale.sh"
 
+# desktop
 if [[ "$MODE" == "install" ]]; then
   echo "Installing apps using MODE=$MODE"
+  bash "$SETUP_INSTALL/zsh.sh"
+  bash "$SETUP_INSTALL/set-shell.sh"
+  bash "$SETUP_INSTALL/git-crypt.sh"
   bash "$SETUP_INSTALL/gcalcli.sh"
 fi
 

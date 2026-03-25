@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # https://www.agwa.name/projects/git-crypt/
 if ! command -v git-crypt &>/dev/null; then
   echo "Installing git-crypt ..."

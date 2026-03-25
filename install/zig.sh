@@ -14,9 +14,9 @@ fi
 
 VER="${VER:-0.14.1}"
 
-# Detect platform/arch (extend if you need more)
+# Detect platform/architecture (extend if you need more)
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
-ARCH="$(uname -m)"
+ARCH="$(uname -m)" # architecture
 case "$ARCH" in
   x86_64 | amd64) ARCH="x86_64" ;;
   aarch64 | arm64) ARCH="aarch64" ;;

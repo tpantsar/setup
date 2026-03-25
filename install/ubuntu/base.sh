@@ -23,12 +23,7 @@ echo "Installing base packages..."
 mapfile -t packages < <(packages_from_file "$SETUP_INSTALL/ubuntu/packages-base.apt")
 install_packages "${packages[@]}"
 
-echo "Configuring passwordless sudo..."
-bash "$SETUP_INSTALL/bypass-sudo.sh"
-
-echo "Fixing permissions..."
-bash "$SETUP_INSTALL/setup-permissions.sh"
-
+# apps
 run_exec "$SETUP_INSTALL/ubuntu/homebrew.sh"
 run_exec "$SETUP_INSTALL/ubuntu/docker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fzf.sh"
