@@ -10,9 +10,9 @@ options for unattended mode and selective installation.
 
 The repository has two installation entrypoints:
 
-- `./base.sh` installs a small, server-safe CLI foundation.
-- `./install.sh` runs the base install first and then adds extra CLI utilities such as `lazygit`,
-  `lazydocker`, `fzf`, `uv`, `yazi`, Docker tooling, and related helpers.
+- `./install.sh` installs small, server-safe CLI tools.
+- `./install.sh --mode full` runs the base install first and then adds extra CLI utilities such as `lazygit`,
+  `lazydocker`, `fzf`, `uv`, `yazi`, Docker tooling, and related tools.
 
 ## Prerequisites
 

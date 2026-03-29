@@ -32,6 +32,8 @@ run_exec "$SETUP_INSTALL/ubuntu/lazydocker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/bat.sh"
 run_exec "$SETUP_INSTALL/ubuntu/go.sh"
 run_exec "$SETUP_INSTALL/ubuntu/brightnessctl.sh"
+run_exec "$SETUP_INSTALL/ubuntu/autorandr.sh"
+run_exec "$SETUP_INSTALL/ubuntu/betterlockscreen.sh"
 
 # cargo
 run_exec "$SETUP_INSTALL/ubuntu/alacritty-source.sh"
