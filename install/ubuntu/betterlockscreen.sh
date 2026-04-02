@@ -13,7 +13,7 @@ if ! command -v betterlockscreen &>/dev/null; then
   wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system
 
   echo "Setting background for betterlockscreen ..."
-  betterlockscreen -u ~/.config/backgrounds/lockscreen2.jpg
+  betterlockscreen -u ~/.config/wallpapers/lockscreen2.jpg
 else
   echo "betterlockscreen is already installed"
   exit 0
