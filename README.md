@@ -78,13 +78,13 @@ MODE=full ./install.sh
 Base install:
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)"
 ```
 
 Full install:
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" "" --unattended --mode full
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" --mode full
 ```
 
 ## Layering
