@@ -26,9 +26,6 @@ nvm install --lts
 nvm install-latest-npm
 nvm use --lts
 
-# Install npm packages
-npm install -g @openai/codex
-
 echo "Node version: $(node --version)"
 echo "npm version: $(npm --version)"
 
