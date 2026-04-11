@@ -9,6 +9,7 @@ install_deps() {
     echo "Debian/Ubuntu detected. Installing dependencies via apt-get"
     sudo apt-get install -y ninja-build gettext cmake curl build-essential git
   elif command -v pacman &>/dev/null; then
+    # https://github.com/neovim/neovim/blob/master/BUILD.md#arch-linux
     echo "Arch detected. Installing dependencies via pacman"
     sudo pacman -S --noconfirm --needed base-devel cmake ninja curl git
   else
@@ -29,6 +30,7 @@ if ! command -v nvim &>/dev/null; then
   cd "$HOME/neovim"
 
   # Build with Release type
+  echo "Building with CMAKE_BUILD_TYPE=Release"
   make CMAKE_BUILD_TYPE=Release
 
   # Verify build type after compilation
