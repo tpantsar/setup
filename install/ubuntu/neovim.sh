@@ -1,45 +1,92 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Exit on any failure
-set -eEo pipefail
+set -euo pipefail
 
-# https://neovim.io/doc/build/#build-prerequisites
+repo_dir="${HOME:?}/src/neovim"
+install_prefix="${HOME:?}/.local"
+target_branch="release-0.12"
+target_version=0.12.0
+build=Release
+
+have_cmd() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 install_deps() {
-  if command -v apt-get &>/dev/null; then
+  if have_cmd apt-get; then
     echo "Debian/Ubuntu detected. Installing dependencies via apt-get"
+    sudo apt-get update
     sudo apt-get install -y ninja-build gettext cmake curl build-essential git
-  elif command -v pacman &>/dev/null; then
-    # https://github.com/neovim/neovim/blob/master/BUILD.md#arch-linux
+  elif have_cmd pacman; then
     echo "Arch detected. Installing dependencies via pacman"
     sudo pacman -S --noconfirm --needed base-devel cmake ninja curl git
   else
-    echo "Unsupported package manager. Please install dependencies manually."
+    echo "Unsupported package manager. Install dependencies manually." >&2
     exit 1
   fi
 }
 
-# Neovim build - https://github.com/neovim/neovim/blob/master/BUILD.md
-# https://github.com/neovim/neovim/blob/stable/BUILD.md#build-prerequisites
-if ! command -v nvim &>/dev/null; then
-  echo "Building and installing Neovim (stable release) from source"
-  install_deps
-  rm -rf "$HOME/neovim/"
+check_toolchain() {
+  echo "Checking curl/cmake health..."
+  curl --version >/dev/null
+  cmake --version >/dev/null
+  git --version >/dev/null
+}
 
-  # Shallow clone only the stable branch
-  git clone --branch stable --single-branch --depth 1 https://github.com/neovim/neovim "$HOME/neovim"
-  cd "$HOME/neovim"
+current_nvim_version() {
+  if have_cmd nvim; then
+    nvim --version | awk 'NR==1 { sub(/^v/, "", $2); print $2 }'
+  else
+    echo ""
+  fi
+}
 
-  # Build with Release type
-  echo "Building with CMAKE_BUILD_TYPE=Release"
-  make CMAKE_BUILD_TYPE=Release
+version_ge() {
+  # returns 0 if $1 >= $2
+  [ "$(printf '%s\n%s\n' "$2" "$1" | sort -V | tail -n1)" = "$1" ]
+}
 
-  # Verify build type after compilation
-  ./build/bin/nvim --version | grep ^Build
+need_install=false
+installed_version="$(current_nvim_version)"
 
-  # Install and check version
-  sudo make install
-  nvim -V1 -v
-  echo "Neovim is installed to /usr/local/bin/nvim"
+if [ -z "$installed_version" ]; then
+  echo "Neovim is not installed"
+  need_install=true
+elif version_ge "$installed_version" "$target_version"; then
+  echo "Neovim $installed_version is already >= $target_version"
 else
-  echo "Neovim is already installed"
+  echo "Neovim $installed_version is older than $target_version"
+  need_install=true
+fi
+
+if [ "$need_install" = true ]; then
+  install_deps
+  check_toolchain
+
+  mkdir -p "$(dirname "$repo_dir")"
+
+  if [ ! -d "$repo_dir/.git" ]; then
+    git clone --branch "$target_branch" --single-branch https://github.com/neovim/neovim "$repo_dir"
+  fi
+
+  cd "$repo_dir"
+  git fetch origin
+  git checkout "$target_branch"
+  git reset --hard "origin/$target_branch"
+
+  # Recommended when reusing a repo or changing CMake settings
+  make distclean
+
+  echo "Building Neovim from $target_branch with CMAKE_BUILD_TYPE=$build and CMAKE_INSTALL_PREFIX=$install_prefix"
+  make CMAKE_BUILD_TYPE="$build" CMAKE_INSTALL_PREFIX="$install_prefix"
+
+  ./build/bin/nvim --version | grep '^Build'
+
+  make install
+
+  echo "Installed to: $install_prefix/bin/nvim"
+  "$install_prefix/bin/nvim" --version
+  echo "Ensure $install_prefix/bin is in PATH"
+else
+  echo "Nothing to do"
 fi
