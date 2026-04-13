@@ -22,6 +22,7 @@ python3-pip
 python3-venv
 software-properties-common
 tldr
+tlp
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
