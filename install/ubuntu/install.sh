@@ -44,4 +44,5 @@ run_exec "$SETUP_INSTALL/ubuntu/treesitter.sh"
 # homebrew
 run_exec "$SETUP_INSTALL/ubuntu/fastfetch.sh"
 run_exec "$SETUP_INSTALL/ubuntu/gum.sh"
+run_exec "$SETUP_INSTALL/ubuntu/glab.sh"
 run_exec "$SETUP_INSTALL/ubuntu/sesh.sh"
