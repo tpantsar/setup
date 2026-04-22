@@ -106,6 +106,7 @@ if [[ "$MODE" == "install" ]]; then
   bash "$SETUP_INSTALL/set-shell.sh"
   bash "$SETUP_INSTALL/git-crypt.sh"
   bash "$SETUP_INSTALL/gcalcli.sh"
+  bash "$SETUP_INSTALL/zk.sh"
 fi
 
 source /etc/os-release
