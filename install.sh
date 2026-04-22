@@ -113,11 +113,11 @@ source /etc/os-release
 case "$ID" in
   arch)
     echo "Arch Linux detected ($MODE mode)"
-    bash "$SETUP_INSTALL/arch/$MODE.sh"
+    MODE=$MODE bash "$SETUP_INSTALL/arch/install.sh"
     ;;
   ubuntu | debian)
     echo "Ubuntu/Debian detected ($MODE mode)"
-    bash "$SETUP_INSTALL/ubuntu/$MODE.sh"
+    MODE=$MODE bash "$SETUP_INSTALL/ubuntu/install.sh"
     ;;
   *)
     echo "Unsupported distribution: $ID"
@@ -127,7 +127,9 @@ esac
 
 if [[ "$MODE" == "base" ]]; then
   echo "Base setup complete."
-else
-  echo "Setup complete! You may want to reboot your system with:"
-  echo "sudo reboot"
+elif [[ "$MODE" == "install" ]]; then
+  echo "Desktop setup complete."
 fi
+
+echo "You may want to reboot your system with:"
+echo "sudo reboot"
