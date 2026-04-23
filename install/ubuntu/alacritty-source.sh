@@ -16,9 +16,13 @@ fi
 rustup override set stable
 rustup update stable
 
+# Get latest alacritty version from GitHub (v0.17.0)
+# ALACRITTY_VERSION=$(curl -s "https://api.github.com/repos/alacritty/alacritty/releases/latest" | grep -Po '"tag_name": *"\K[^"]*')
+
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation
 git clone https://github.com/alacritty/alacritty.git ~/alacritty
 cd ~/alacritty
+# git checkout "$ALACRITTY_VERSION"
 
 # dependencies
 sudo apt install -y cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
