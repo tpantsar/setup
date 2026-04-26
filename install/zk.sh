@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 REPO_PATH="${REPO_PATH:-$HOME/setup}"
 INSTALL_PATH="/usr/local/bin"
 

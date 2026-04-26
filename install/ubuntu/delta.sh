@@ -2,8 +2,6 @@
 # https://dandavison.github.io/delta/installation.html
 # https://github.com/dandavison/delta/releases
 
-set -euo pipefail
-
 REPO_PATH="${REPO_PATH:-$HOME/setup}"
 INSTALL_PATH="/usr/local/bin"
 

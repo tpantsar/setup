@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -euo pipefail
-
 # https://github.com/sxyazi/yazi
 # https://yazi-rs.github.io/docs/installation#source
+
+set -euo pipefail
 
 REPO_URL="https://github.com/sxyazi/yazi.git"
 SRC_DIR="${HOME}/yazi"

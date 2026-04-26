@@ -5,8 +5,6 @@
 #   /usr/local/zig/current          → symlink to active version
 #   /usr/local/bin/zig              → symlink to /usr/local/zig/current/zig
 
-set -euo pipefail
-
 if command -v zig >/dev/null 2>&1; then
   echo "zig is already installed: $(zig version)"
   exit 0

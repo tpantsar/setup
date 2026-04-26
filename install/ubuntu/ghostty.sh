@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-# Install ghostty
 # https://ghostty.org/docs/install/build
-
-set -euo pipefail
 
 if command -v ghostty >/dev/null 2>&1; then
   echo "ghostty is already installed: $(ghostty --version)"
