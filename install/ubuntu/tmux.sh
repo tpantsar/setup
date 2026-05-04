@@ -1,10 +1,10 @@
 #!/bin/bash
-
-source /etc/os-release
-
+# Install tmux from source.
 # Troubleshooting:
 # tmux open terminal failed: not a terminal
 # https://stackoverflow.com/questions/25207909/tmux-open-terminal-failed-not-a-terminal
+
+source /etc/os-release
 
 if command -v tmux &>/dev/null; then
   echo "tmux is already installed."
@@ -37,15 +37,4 @@ fi
 if ! command -v tmux &>/dev/null; then
   echo "tmux installation failed."
   exit 1
-fi
-
-TPM_DIR="$HOME/.tmux/plugins/tpm"
-
-# Check if TPM is already installed
-if [ -d "$TPM_DIR" ]; then
-  echo "TPM is already installed in $TPM_DIR"
-else
-  echo "Installing Tmux Plugin Manager (TPM) to $TPM_DIR ..."
-  git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
-  echo "TPM installed successfully!"
 fi
