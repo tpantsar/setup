@@ -2,9 +2,6 @@
 # https://dandavison.github.io/delta/installation.html
 # https://github.com/dandavison/delta/releases
 
-REPO_PATH="${REPO_PATH:-$HOME/setup}"
-INSTALL_PATH="/usr/local/bin"
-
 # Get latest git-delta version from GitHub
 DELTA_VERSION=$(curl -fsSL "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": *"\K[^"]*')
 
@@ -41,6 +38,7 @@ if [ -z "$DELTA_BIN" ]; then
   exit 1
 fi
 
+INSTALL_PATH="/usr/local/bin"
 echo "Installing to $INSTALL_PATH"
 sudo install "$DELTA_BIN" -D -t "$INSTALL_PATH"
 
