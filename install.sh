@@ -108,6 +108,7 @@ if [[ "$MODE" == "install" ]]; then
   bash "$SETUP_INSTALL/gcalcli.sh"
   bash "$SETUP_INSTALL/zk.sh"
   bash "$SETUP_INSTALL/tmux-setup.sh"
+  bash "$SETUP_INSTALL/atuin.sh"
 fi
 
 source /etc/os-release
