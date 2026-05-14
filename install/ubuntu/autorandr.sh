@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-# autorandr - https://github.com/phillipberndt/autorandr
+# https://github.com/phillipberndt/autorandr
+# https://github.com/tpantsar/autorandr
 if ! command -v autorandr &>/dev/null; then
   echo "Cloning and installing autorandr from git source..."
-  git clone --depth=1 https://github.com/phillipberndt/autorandr.git ~/autorandr
+  git clone --depth=1 git@github.com:tpantsar/autorandr.git ~/autorandr
   cd ~/autorandr
   sudo apt install -y python3
 
@@ -14,11 +15,11 @@ if ! command -v autorandr &>/dev/null; then
   echo "Installing autorandr with pip3..."
   pip3 install .
 
-  # Test autorandr executable
-  ~/autorandr/.venv/bin/autorandr --version
-
-  # Copy autorandr executable to PATH
+  echo "Copying autorandr executable to PATH"
   sudo cp ~/autorandr/.venv/bin/autorandr ~/.local/bin/
+
+  echo "autorandr path: $(command -v autorandr)"
+  echo "autorandr version: $(autorandr --version)"
 else
   echo "autorandr is already installed"
   exit 0
