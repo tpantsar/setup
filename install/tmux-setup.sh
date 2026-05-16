@@ -18,4 +18,4 @@ bash "$HOME/bin/tmset"
 git clone git@github.com:tpantsar/tmuxifier.git ~/.tmuxifier
 cd ~/.tmuxifier
 git pull --rebase --autostash
-sudo ln -s ~/.tmuxifier/bin/tmuxifier /usr/local/bin/tmuxifier
+sudo ln -sf ~/.tmuxifier/bin/tmuxifier /usr/local/bin/tmuxifier
