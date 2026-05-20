@@ -28,13 +28,13 @@ fi
 mkdir -p "$FONT_DIR"
 
 # Download and install font
-echo "Downloading $FONT_NAME Nerd Font..."
+echo "Downloading $FONT_NAME Nerd Font ..."
 wget -O "$ZIP_FILE" "$FONT_URL"
 
-echo "Extracting font..."
+echo "Extracting font to $ZIP_FILE ..."
 unzip -o "$ZIP_FILE" -d "$FONT_DIR"
 
-echo "Cleaning up..."
+echo "Removing the zip file $ZIP_FILE ..."
 rm "$ZIP_FILE"
 
 echo "Updating font cache..."
