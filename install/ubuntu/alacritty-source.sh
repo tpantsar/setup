@@ -23,6 +23,8 @@ rustup update stable
 git clone https://github.com/alacritty/alacritty.git ~/alacritty
 cd ~/alacritty
 # git checkout "$ALACRITTY_VERSION"
+git checkout master
+git pull --rebase --autostash
 
 # dependencies
 sudo apt install -y cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
@@ -57,3 +59,6 @@ echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >>${ZDOTDIR:-~}/.zshrc
 
 # copy the completion file
 cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+
+echo "alacritty path: $(command -v alacritty)"
+echo "alacritty version: $(alacritty --version)"
