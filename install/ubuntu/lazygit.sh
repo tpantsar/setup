@@ -36,5 +36,5 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
 
 # Test lazygit executable
-which lazygit
-lazygit --version
+echo "Lazygit path: $(command -v lazygit)"
+echo "Lazygit version: $(lazygit --version)"

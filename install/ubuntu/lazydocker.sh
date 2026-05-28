@@ -36,5 +36,5 @@ tar xf lazydocker.tar.gz lazydocker
 sudo install lazydocker -D -t /usr/local/bin/
 
 # Test lazydocker executable
-which lazydocker
-lazydocker --version
+echo "Lazydocker path: $(command -v lazydocker)"
+echo "Lazydocker version: $(lazydocker --version)"
