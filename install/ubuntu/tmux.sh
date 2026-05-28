@@ -21,12 +21,14 @@ elif [[ "$ID" == "ubuntu" || "$ID" == "debian" ]]; then
   # https://github.com/tmux/tmux/wiki/Installing#from-version-control
   git clone https://github.com/tmux/tmux.git ~/tmux-installation
   cd ~/tmux-installation
+  git pull --rebase --autostash
   sudo apt install -y autoconf automake pkg-config libevent-dev ncurses-dev build-essential bison
-  sh autogen.sh
+  ./autogen.sh
   ./configure --enable-static
   make && sudo make install
-  tmux -V
   echo "tmux installed successfully!"
+  echo "tmux path: $(command -v tmux)"
+  echo "tmux version: $(tmux -V)"
 else
   echo "Other distro: $ID"
   echo "Unsupported distribution. Exiting."
