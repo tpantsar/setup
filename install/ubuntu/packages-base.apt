@@ -1,3 +1,4 @@
+autoconf
 build-essential
 ca-certificates
 curl
@@ -5,13 +6,17 @@ git
 htop
 jq
 make
+gcc
 network-manager
 pkg-config
 ripgrep
 sqlite3
 stow
+thunar
 tree
 unzip
 vim
 wget
 zip
+xorg
+xinit
