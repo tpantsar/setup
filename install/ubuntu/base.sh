@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eEo pipefail
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export SETUP_INSTALL="${SETUP_INSTALL:-$(cd "$SCRIPT_DIR/.." && pwd)}"
@@ -10,6 +10,10 @@ source "$SETUP_INSTALL/ubuntu/utils.sh"
 
 echo "Creating necessary directories..."
 mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.local/share/applications"
+
+# Disable Snapd entirely (removes 12+ background services)
+sudo systemctl disable --now snapd.socket snapd.seeded.service snapd.service
+sudo apt purge -y snapd gnome-software-plugin-snap
 
 echo "Updating system packages..."
 sudo apt update
