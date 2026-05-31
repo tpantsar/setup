@@ -15,6 +15,15 @@ mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.local/share/applications"
 sudo systemctl disable --now snapd.socket snapd.seeded.service snapd.service
 sudo apt purge -y snapd gnome-software-plugin-snap
 
+# Disable unnecessary GNOME services
+gsettings set org.gnome.desktop.session idle-delay 0 # Prevents auto-lock distraction
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+
+# Enable ZRAM swap (reduces SSD wear, improves memory pressure response)
+sudo apt install -y zram-config
+sudo systemctl restart zram-config
+
 echo "Updating system packages..."
 sudo apt update
 sudo apt upgrade -y --allow-downgrades
