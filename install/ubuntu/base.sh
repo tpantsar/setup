@@ -36,7 +36,6 @@ mapfile -t packages < <(packages_from_file "$SETUP_INSTALL/ubuntu/packages-base.
 install_packages "${packages[@]}"
 
 # apps
-run_exec "$SETUP_INSTALL/ubuntu/homebrew.sh"
 run_exec "$SETUP_INSTALL/ubuntu/docker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fzf.sh"
 run_exec "$SETUP_INSTALL/ubuntu/eza.sh"

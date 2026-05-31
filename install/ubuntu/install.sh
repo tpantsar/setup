@@ -27,6 +27,7 @@ sudo update-alternatives --config x-www-browser
 sudo update-alternatives --config www-browser
 sudo update-alternatives --config gnome-www-browser
 
+run_exec "$SETUP_INSTALL/ubuntu/homebrew.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fonts.sh"
 run_exec "$SETUP_INSTALL/ubuntu/neovim.sh"
 run_exec "$SETUP_INSTALL/ubuntu/firefox.sh"
