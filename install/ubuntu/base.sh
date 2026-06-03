@@ -35,6 +35,9 @@ echo "Installing base packages..."
 mapfile -t packages < <(packages_from_file "$SETUP_INSTALL/ubuntu/packages-base.apt")
 install_packages "${packages[@]}"
 
+echo "Enabling firewall..."
+run_exec "$SETUP_INSTALL/ubuntu/firewall.sh"
+
 # apps
 run_exec "$SETUP_INSTALL/ubuntu/docker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fzf.sh"
