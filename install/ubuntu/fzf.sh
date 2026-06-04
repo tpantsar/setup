@@ -7,8 +7,8 @@ if command -v fzf &>/dev/null; then
 fi
 
 if ! command -v git &>/dev/null; then
-  echo "Git is not installed. Please install Git first."
-  exit 1
+  echo "Git is not installed. Installing it..."
+  sudo apt install -y git
 fi
 
 if [ -d "$HOME/.fzf" ]; then
