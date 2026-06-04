@@ -32,6 +32,22 @@ cd ~/setup
 
 Setup SSH keys for GitHub if you haven't already:
 
+Generate a local SSH keypair:
+
+```sh
+install/ssh-keygen.sh
+```
+
+Check authentication to github:
+
+```sh
+ssh -T git@github.com
+```
+
+GitHub returns a successful authentication message when one of your local SSH keys is added to your
+personal GitHub account. The installer also runs `install/ssh-keygen.sh` and `install/ssh-gh.sh`
+before cloning dotfiles so `git@github.com:tpantsar/dotfiles.git` can be cloned over SSH.
+
 With curl:
 
 - You can generate a token at: https://github.com/settings/personal-access-tokens/new
@@ -40,7 +56,7 @@ With curl:
 - Add `GITHUB_TOKEN` to your environment variables:
 
 ```sh
-export GITHUB_TOKEN=githup_pat
+export GITHUB_TOKEN=github_pat
 install/ssh-curl.sh
 ```
 
@@ -78,13 +94,13 @@ MODE=full ./install.sh
 Base install:
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh | bash
 ```
 
 Full install:
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh)" --mode full
+curl -fsSL https://raw.githubusercontent.com/tpantsar/setup/main/install.sh | bash -s -- --mode full
 ```
 
 ## Layering

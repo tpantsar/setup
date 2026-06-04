@@ -5,30 +5,33 @@
 # Optional override:
 # SSH_KEY=~/.ssh/id_ed25519
 SSH_KEY="${SSH_KEY:-}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Skip when gh isn't installed yet to avoid aborting the full installer.
 if ! command -v gh >/dev/null 2>&1; then
   echo "gh not found; skipping GitHub SSH key setup."
+  echo "Install GitHub CLI with the following command:"
+  echo "sudo apt install gh"
   exit 0
 fi
 
 # Prefer modern key, but also consider RSA
 DEFAULT_KEYS=(
-  "${HOME}/.ssh/id_ed25519"
-  "${HOME}/.ssh/id_rsa"
+  "$HOME/.ssh/id_ed25519"
+  "$HOME/.ssh/id_rsa"
 )
 
 HOST="github.com"
 SSH_USER="git"
 
-PRIVATE_KEY="${SSH_KEY:-${HOME}/.ssh/id_ed25519}"
+PRIVATE_KEY="${SSH_KEY:-$HOME/.ssh/id_ed25519}"
 PUB_KEY="${PRIVATE_KEY}.pub"
 EMAIL="${EMAIL:-$(git config --get user.email 2>/dev/null || true)}"
 EMAIL="${EMAIL:-tomi.pantsar@gmail.com}"
 TITLE="${TITLE:-$(hostname)-$(date +%Y%m%d-%H%M%S)}"
 
-mkdir -p "${HOME}/.ssh"
-chmod 700 "${HOME}/.ssh"
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
 
 need_cmd() {
   command -v "$1" >/dev/null 2>&1 || {
@@ -87,20 +90,7 @@ need_cmd grep
 need_cmd sed
 need_cmd tr
 
-# Generate SSH key if missing
-if [[ ! -f "${PRIVATE_KEY}" ]]; then
-  echo "Generating a new SSH key at ${PRIVATE_KEY}..."
-  ssh-keygen -t ed25519 -C "$EMAIL" -f "$PRIVATE_KEY" -N ""
-else
-  echo "SSH key already exists at ${PRIVATE_KEY}"
-fi
-
-# Ensure public key exists (some setups have private key but missing .pub)
-if [[ ! -f "$PUB_KEY" ]]; then
-  echo "Public key missing; regenerating ${PUB_KEY} from private key..."
-  ssh-keygen -y -f "$PRIVATE_KEY" >"$PUB_KEY"
-  chmod 644 "$PUB_KEY"
-fi
+SSH_KEY="$PRIVATE_KEY" EMAIL="$EMAIL" bash "$SCRIPT_DIR/ssh-keygen.sh"
 
 # If SSH already works with any existing key, stop.
 echo "Checking existing SSH authentication to GitHub..."

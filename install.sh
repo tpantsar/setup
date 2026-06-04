@@ -66,6 +66,29 @@ set -- "${POSITIONAL_ARGS[@]}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_PATH="${SETUP_PATH:-$HOME/setup}"
 
+ensure_github_cli() {
+  if command -v gh >/dev/null 2>&1; then
+    echo "GitHub CLI is already installed."
+    return 0
+  fi
+
+  source /etc/os-release
+  echo "Installing GitHub CLI for SSH key setup..."
+  case "$ID" in
+    arch)
+      sudo pacman -Sy --noconfirm --needed github-cli
+      ;;
+    ubuntu | debian)
+      sudo apt-get update
+      sudo apt-get install -y gh
+      ;;
+    *)
+      echo "Unsupported distribution for GitHub CLI install: $ID"
+      exit 1
+      ;;
+  esac
+}
+
 if [[ -d "$SCRIPT_DIR/install" ]]; then
   export SETUP_PATH="${SETUP_PATH:-$SCRIPT_DIR}"
   export SETUP_INSTALL="${SETUP_INSTALL:-$SETUP_PATH/install}"
@@ -94,8 +117,12 @@ else
 fi
 
 # server
+sudo timedatectl set-timezone Europe/Helsinki
 bash "$SETUP_INSTALL/bypass-sudo.sh"
 bash "$SETUP_INSTALL/setup-permissions.sh"
+bash "$SETUP_INSTALL/ssh-keygen.sh"
+ensure_github_cli
+bash "$SETUP_INSTALL/ssh-gh.sh"
 bash "$SETUP_INSTALL/dotfiles.sh"
 bash "$SETUP_INSTALL/tailscale.sh"
 
