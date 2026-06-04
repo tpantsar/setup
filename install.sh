@@ -129,7 +129,6 @@ bash "$SETUP_INSTALL/tailscale.sh"
 # desktop
 if [[ "$MODE" == "install" ]]; then
   echo "Installing apps using MODE=$MODE"
-  bash "$SETUP_INSTALL/zsh.sh"
   bash "$SETUP_INSTALL/set-shell.sh"
   bash "$SETUP_INSTALL/git-crypt.sh"
   bash "$SETUP_INSTALL/gcalcli.sh"

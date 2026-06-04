@@ -1,6 +1,11 @@
 #!/bin/bash
 # https://gist.github.com/n1snt/2cccc8aa5f7b645a7628d3512c70deb6
 
+if ! command -v zsh &>/dev/null; then
+  echo "zsh not found, installing..."
+  sudo apt install -y zsh
+fi
+
 # oh-my-zsh - https://ohmyz.sh/#basic-installation
 if [ -d "$HOME/.oh-my-zsh" ] && command -v omz >/dev/null 2>&1; then
   echo "Oh My Zsh is already installed. Updating with omz update ..."

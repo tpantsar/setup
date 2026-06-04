@@ -39,6 +39,7 @@ echo "Enabling firewall..."
 sudo "$SETUP_INSTALL/ubuntu/firewall.sh"
 
 # apps
+run_exec "$SETUP_INSTALL/ubuntu/zsh.sh"
 run_exec "$SETUP_INSTALL/ubuntu/docker.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fzf.sh"
 run_exec "$SETUP_INSTALL/ubuntu/eza.sh"
