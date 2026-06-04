@@ -15,7 +15,7 @@ TARGET_DIR="install/${FOLDER}"
 mkdir -p "$TARGET_DIR"
 FILE_PATH="${TARGET_DIR}/${FILENAME}"
 
-cat <<EOF > "$FILE_PATH"
+cat <<EOF >"$FILE_PATH"
 #!/usr/bin/env bash
 set -e
 
