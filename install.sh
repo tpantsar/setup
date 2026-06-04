@@ -14,7 +14,7 @@ You can also set MODE=base or MODE=full
 EOF
 }
 
-# selects base.sh or install.sh
+# selects base or desktop installation
 normalize_mode() {
   case "${1,,}" in
     base | basic | server)
