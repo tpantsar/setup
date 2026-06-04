@@ -43,7 +43,7 @@ need_cmd() {
 # Detect GitHub's "success" banner (exit code is often 1 even on success)
 ssh_auth_works_with_key() {
   local key="$1"
-  [[ -f "$key" ]] || exit 1
+  [[ -f "$key" ]] || return 1
 
   local extra_opts=()
   # If supported, avoid interactive host key prompt on first connect
@@ -51,12 +51,18 @@ ssh_auth_works_with_key() {
     extra_opts+=(-o StrictHostKeyChecking=accept-new)
   fi
 
+  echo "Testing GitHub SSH auth with $key..."
+
   local out
   out="$(
     ssh \
       "${extra_opts[@]}" \
       -o BatchMode=yes \
+      -o ConnectTimeout=10 \
+      -o ConnectionAttempts=1 \
       -o IdentitiesOnly=yes \
+      -o PasswordAuthentication=no \
+      -o PreferredAuthentications=publickey \
       -i "$key" \
       -T "${SSH_USER}@${HOST}" 2>&1 || true
   )"
