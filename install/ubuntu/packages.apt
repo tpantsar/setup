@@ -34,7 +34,6 @@ make
 nautilus
 nodejs
 npm
-picom
 pinentry-tty
 pipx
 polybar
