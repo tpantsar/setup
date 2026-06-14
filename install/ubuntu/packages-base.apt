@@ -17,6 +17,7 @@ tree
 unzip
 vim
 wget
+lightdm
 zip
 xorg
 xinit
