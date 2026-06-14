@@ -20,5 +20,6 @@ wget
 zip
 xorg
 xinit
+xserver-xorg
 openssh-server
 openssh-sftp-server
