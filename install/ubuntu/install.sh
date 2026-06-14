@@ -44,6 +44,8 @@ run_exec "$SETUP_INSTALL/ubuntu/eza.sh"
 run_exec "$SETUP_INSTALL/ubuntu/starship.sh"
 run_exec "$SETUP_INSTALL/ubuntu/zoxide.sh"
 run_exec "$SETUP_INSTALL/ubuntu/delta.sh"
+run_exec "$SETUP_INSTALL/ubuntu/tlp.sh"
+run_exec "$SETUP_INSTALL/ubuntu/optimize.sh"
 
 echo "Ubuntu base installation done!"
 
