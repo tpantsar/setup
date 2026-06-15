@@ -29,3 +29,38 @@ packages_from_file() {
   local package_file="$1"
   grep -v '^#' "$package_file" | grep -v '^$'
 }
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+log() {
+  local message="$1"
+  local timestamp
+  timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
+  echo -e "${GREEN}[${timestamp}] ${message}${NC}" | tee -a "$LOG_FILE"
+}
+
+warn() {
+  local message="$1"
+  local timestamp
+  timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
+  echo -e "${YELLOW}[${timestamp}] WARNING: ${message}${NC}" | tee -a "$LOG_FILE"
+}
+
+error() {
+  local message="$1"
+  local timestamp
+  timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
+  echo -e "${RED}[${timestamp}] ERROR: ${message}${NC}" | tee -a "$LOG_FILE"
+}
+
+# Root check
+require_root() {
+  if [ "$(id -u)" -ne 0 ]; then
+    error "This script must be run as root"
+    exit 1
+  fi
+}

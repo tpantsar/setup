@@ -1,5 +1,9 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export SETUP_INSTALL="${SETUP_INSTALL:-$(cd "$SCRIPT_DIR/.." && pwd)}"
+source "$SETUP_INSTALL/ubuntu/utils.sh"
+
 LOG_FILE="/var/log/server_setup_$(date +%Y%m%d_%H%M%S).log"
 
 REAL_USER="${SUDO_USER:-$USER}"
@@ -7,43 +11,6 @@ REAL_GROUP="$(id -gn "$REAL_USER")"
 
 sudo touch "$LOG_FILE"
 sudo chown "$REAL_USER:$REAL_GROUP" "$LOG_FILE"
-
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-log() {
-  local message="$1"
-  local timestamp
-  timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
-  echo -e "${GREEN}[${timestamp}] ${message}${NC}" | tee -a "$LOG_FILE"
-}
-
-warn() {
-  local message="$1"
-  local timestamp
-  timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
-  echo -e "${YELLOW}[${timestamp}] WARNING: ${message}${NC}" | tee -a "$LOG_FILE"
-}
-
-error() {
-  local message="$1"
-  local timestamp
-  timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
-  echo -e "${RED}[${timestamp}] ERROR: ${message}${NC}" | tee -a "$LOG_FILE"
-}
-
-# Root check
-require_root() {
-  if [ "$(id -u)" -ne 0 ]; then
-    error "This script must be run as root"
-    exit 1
-  fi
-}
-
-# require_root
 
 # https://oneuptime.com/blog/post/2026-03-02-how-to-automate-server-setup-scripts-on-ubuntu/view
 # ~/.local/share/omarchy/install/first-run/firewall.sh
