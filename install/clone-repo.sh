@@ -24,3 +24,6 @@ else
     fi
   fi
 fi
+
+echo "Changing setup repository remote to SSH for both fetch and push"
+git remote set-url origin git@github.com:tpantsar/setup.git
