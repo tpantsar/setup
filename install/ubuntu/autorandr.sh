@@ -15,14 +15,16 @@ if ! command -v autorandr &>/dev/null; then
   source .venv/bin/activate
 
   echo "Installing autorandr with pip3..."
+  echo "pip3 version: $(pip3 --version)"
   pip3 install .
-
-  echo "Copying autorandr executable to PATH"
-  sudo cp ~/autorandr/.venv/bin/autorandr ~/.local/bin/
-
-  echo "autorandr path: $(command -v autorandr)"
-  echo "autorandr version: $(autorandr --version)"
 else
   echo "autorandr is already installed"
-  exit 0
 fi
+
+if [ ! -f "$HOME/.local/bin/autorandr" ]; then
+  echo "Copying autorandr executable to PATH"
+  sudo cp ~/autorandr/.venv/bin/autorandr ~/.local/bin/
+fi
+
+echo "autorandr path: $(command -v autorandr)"
+echo "autorandr version: $(autorandr --version)"
