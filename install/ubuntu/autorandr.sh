@@ -6,7 +6,9 @@ if ! command -v autorandr &>/dev/null; then
   echo "Cloning and installing autorandr from git source..."
   git clone --depth=1 git@github.com:tpantsar/autorandr.git ~/autorandr
   cd ~/autorandr
-  sudo apt install -y python3
+
+  echo "Installing python3 and python3-venv from apt"
+  sudo apt install -y python3 python3-venv
 
   echo "Creating virtual environment for autorandr..."
   python3 -m venv .venv
