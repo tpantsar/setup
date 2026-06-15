@@ -11,6 +11,8 @@ mkdir -p \
 sudo chown root:root /usr/lib/systemd /usr/lib/systemd/user
 sudo chmod 755 /usr/lib/systemd /usr/lib/systemd/user
 
+sudo usermod -aG video "$USER"
+
 echo "Settings permissions for applications and mimeapps"
 sudo chown "$USER:$USER" ~/.config ~/.local ~/.local/share ~/.local/share/applications
 sudo chown "$USER:$USER" ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list 2>/dev/null
