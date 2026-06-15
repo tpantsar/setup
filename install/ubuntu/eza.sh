@@ -17,8 +17,9 @@ if ! command -v eza >/dev/null 2>&1; then
   sudo apt install -y eza
 
   echo "eza installed successfully"
-  echo "eza installation path: $(which eza)"
-  echo "eza version: $(eza --version)"
 else
   echo "eza is already installed"
 fi
+
+echo "eza path: $(which eza)"
+echo "eza version: $(eza --version)"

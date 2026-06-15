@@ -16,5 +16,6 @@ if ! command -v betterlockscreen &>/dev/null; then
   betterlockscreen -u ~/.config/wallpapers/lockscreen2.jpg
 else
   echo "betterlockscreen is already installed"
-  exit 0
 fi
+
+betterlockscreen --version
