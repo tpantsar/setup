@@ -6,6 +6,8 @@ TPM_DIR="$HOME/.tmux/plugins/tpm"
 # Check if TPM is already installed
 if [ -d "$TPM_DIR" ]; then
   echo "TPM is already installed in $TPM_DIR"
+  echo "Updating TPM repository.."
+  git -C "$TPM_DIR" pull --rebase --autostash
 else
   echo "Installing TPM (Tmux Plugin Manager) to $TPM_DIR ..."
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
