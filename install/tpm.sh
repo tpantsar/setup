@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Tmux plugin manager
 
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
@@ -10,12 +11,3 @@ else
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
   echo "TPM installed successfully to $TPM_DIR"
 fi
-
-# Run as subprocess to isolate errors
-bash "$HOME/bin/tmset"
-
-# tmuxifier symlink
-git clone git@github.com:tpantsar/tmuxifier.git ~/.tmuxifier
-cd ~/.tmuxifier
-git pull --rebase --autostash
-sudo ln -sf ~/.tmuxifier/bin/tmuxifier /usr/local/bin/tmuxifier
