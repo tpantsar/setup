@@ -1,146 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eEo pipefail
-
-usage() {
-  cat <<'EOF'
-Usage: install.sh [--mode MODE]
-
-Modes:
-  base    Basic server/base installation (default)
-  full    Full desktop setup
-
-You can also set MODE=base or MODE=full
-EOF
-}
-
-# selects base or desktop installation
-normalize_mode() {
-  case "${1,,}" in
-    base | basic | server)
-      echo "base"
-      ;;
-    full | desktop)
-      echo "install"
-      ;;
-    *)
-      echo "Invalid mode: $1" >&2
-      usage >&2
-      exit 1
-      ;;
-  esac
-}
-
-MODE="${MODE:-base}"
-POSITIONAL_ARGS=()
-
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --mode)
-      [[ $# -ge 2 ]] || {
-        echo "--mode requires a value" >&2
-        usage >&2
-        exit 1
-      }
-      MODE="$2"
-      shift 2
-      ;;
-    --mode=*)
-      MODE="${1#*=}"
-      shift
-      ;;
-    -h | --help)
-      usage
-      exit 0
-      ;;
-    *)
-      POSITIONAL_ARGS+=("$1")
-      shift
-      ;;
-  esac
-done
-
-MODE="$(normalize_mode "$MODE")"
-set -- "${POSITIONAL_ARGS[@]}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_PATH="${SETUP_PATH:-$HOME/setup}"
 
-ensure_github_cli() {
-  if command -v gh >/dev/null 2>&1; then
-    echo "GitHub CLI is already installed."
-    return 0
-  fi
+source "$SCRIPT_DIR/install/utils.sh"
 
-  source /etc/os-release
-  echo "Installing GitHub CLI for SSH key setup..."
-  case "$ID" in
-    arch)
-      sudo pacman -Sy --noconfirm --needed github-cli
-      ;;
-    ubuntu | debian)
-      sudo apt-get update
-      sudo apt-get install -y gh
-      ;;
-    *)
-      echo "Unsupported distribution for GitHub CLI install: $ID"
-      exit 1
-      ;;
-  esac
-}
+parse_args "$@"
+set -- "${POSITIONAL_ARGS[@]}"
+ensure_setup_repo "$@"
 
-if [[ -d "$SCRIPT_DIR/install" ]]; then
-  export SETUP_PATH="${SETUP_PATH:-$SCRIPT_DIR}"
-  export SETUP_INSTALL="${SETUP_INSTALL:-$SETUP_PATH/install}"
-else
-  if ! command -v git >/dev/null 2>&1; then
-    source /etc/os-release
-    case "$ID" in
-      arch)
-        sudo pacman -Sy --noconfirm git
-        ;;
-      ubuntu | debian)
-        sudo apt-get update
-        sudo apt-get install -y git
-        ;;
-      *)
-        echo "Unsupported distribution: $ID"
-        exit 1
-        ;;
-    esac
-  fi
+source "$SETUP_INSTALL/steps/base.sh"
 
-  export SETUP_PATH="$REPO_PATH"
-  bash "$SCRIPT_DIR/install/clone-repo.sh"
-
-  exec bash "$REPO_PATH/install.sh" --mode "$MODE" "$@"
-fi
-
-# server
-sudo timedatectl set-timezone Europe/Helsinki
-bash "$SETUP_INSTALL/bypass-sudo.sh"
-bash "$SETUP_INSTALL/setup-permissions.sh"
-bash "$SETUP_INSTALL/ssh-keygen.sh"
-ensure_github_cli
-bash "$SETUP_INSTALL/ssh-gh.sh"
-bash "$SETUP_INSTALL/dotfiles.sh"
-bash "$SETUP_INSTALL/tailscale.sh"
-
-# desktop
 if [[ "$MODE" == "install" ]]; then
-  echo "Installing apps using MODE=$MODE"
-  bash "$SETUP_INSTALL/set-shell.sh"
-  bash "$SETUP_INSTALL/git-crypt.sh"
-  bash "$SETUP_INSTALL/gcalcli.sh"
-  bash "$SETUP_INSTALL/zk.sh"
-  bash "$SETUP_INSTALL/node.sh"
-
-  # tmux
-  bash "$SETUP_INSTALL/tmuxifier.sh"
-  bash "$SETUP_INSTALL/tpm.sh"
-  bash "$HOME/bin/tmset"
-
-  bash "$SETUP_INSTALL/atuin.sh"
+  source "$SETUP_INSTALL/steps/desktop.sh"
 fi
 
 source /etc/os-release
@@ -159,11 +33,5 @@ case "$ID" in
     ;;
 esac
 
-if [[ "$MODE" == "base" ]]; then
-  echo "Base setup complete."
-elif [[ "$MODE" == "install" ]]; then
-  echo "Desktop setup complete."
-fi
-
-echo "You may want to reboot your system with:"
+echo "install.sh completed. You may want to reboot your system with:"
 echo "sudo reboot"
