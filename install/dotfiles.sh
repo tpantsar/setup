@@ -12,10 +12,8 @@ else
 fi
 
 if [ -d "$REPO_TARGET" ]; then
-  # Create symlinks
-  ~/dotfiles/bin/tp-stow
-  echo "Dotfiles installed successfully."
+  ~/dotfiles/bin/stoww
 else
-  echo "Failed to clone dotfiles repository."
+  echo "Failed to clone dotfiles repository and create symlinks."
   exit 1
 fi
