@@ -1,13 +1,6 @@
 #!/bin/bash
 
-# Install onedrive - https://github.com/abraunegg/onedrive/blob/master/docs/install.md
-# https://github.com/abraunegg/onedrive/blob/master/docs/advanced-usage.md#configuring-the-client-to-use-multiple-onedrive-accounts--configurations
-if ! command -v onedrive &>/dev/null; then
-  echo "Installing build dependencies for onedrive ..."
-  sudo apt install build-essential
-  sudo apt install libcurl4-openssl-dev libsqlite3-dev pkg-config git curl systemd-dev libdbus-1-dev
-  sudo apt install libnotify-dev
-
+install_dmd() {
   if ! ls ~/dlang/ | grep -q '^dmd-'; then
     echo "Installing dmd compiler ..."
     curl -fsS https://dlang.org/install.sh | bash -s dmd
@@ -25,6 +18,19 @@ if ! command -v onedrive &>/dev/null; then
   else
     echo "dmd compiler is already installed, skipping ..."
   fi
+}
+
+# Install onedrive - https://github.com/abraunegg/onedrive/blob/master/docs/install.md
+# https://github.com/abraunegg/onedrive/blob/master/docs/advanced-usage.md#configuring-the-client-to-use-multiple-onedrive-accounts--configurations
+if ! command -v onedrive &>/dev/null; then
+  echo "Installing build dependencies for onedrive ..."
+  sudo apt update
+  sudo apt install -y make build-essential libcurl4-openssl-dev libsqlite3-dev pkg-config git curl systemd-dev libdbus-1-dev
+
+  # For GUI notifications the following is also necessary
+  sudo apt install -y libnotify-dev
+
+  install_dmd
 
   echo "Removing any existing onedrive source directory ..."
   rm -rf ~/onedrive/
@@ -39,18 +45,16 @@ if ! command -v onedrive &>/dev/null; then
   make
   sudo make install
 
-  # Test onedrive executable
-  echo "Testing onedrive installation ..."
-  ls -l "$(command -v onedrive)"
-  echo "onedrive version: $(onedrive --version)"
-
   # Enable onedrive on systemctl
   sudo ps aufxw | grep onedrive
   systemctl --user enable --now onedrive
 
   echo "Deactivating dmd environment ..."
   deactivate
+
   echo "onedrive installation completed."
+  echo "onedrive path: $(command -v onedrive)"
+  echo "onedrive version: $(onedrive --version)"
 
   # sudo make uninstall
   # sudo rm -f /usr/local/bin/onedrive
