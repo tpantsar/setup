@@ -66,6 +66,7 @@ run_exec "$SETUP_INSTALL/ubuntu/brightnessctl.sh"
 run_exec "$SETUP_INSTALL/ubuntu/autorandr.sh"
 run_exec "$SETUP_INSTALL/ubuntu/betterlockscreen.sh"
 run_exec "$SETUP_INSTALL/ubuntu/tmux.sh"
+# run_exec "$SETUP_INSTALL/ubuntu/impala.sh"
 # run_exec "$SETUP_INSTALL/ubuntu/go.sh"
 
 # cargo
