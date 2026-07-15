@@ -68,13 +68,14 @@ run_exec "$SETUP_INSTALL/ubuntu/betterlockscreen.sh"
 run_exec "$SETUP_INSTALL/ubuntu/tmux.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fastfetch.sh"
 run_exec "$SETUP_INSTALL/ubuntu/treesitter.sh"
+run_exec "$SETUP_INSTALL/ubuntu/yazi.sh"
 # run_exec "$SETUP_INSTALL/ubuntu/impala.sh"
 # run_exec "$SETUP_INSTALL/ubuntu/go.sh"
 
 # cargo
 run_exec "$SETUP_INSTALL/ubuntu/alacritty.sh"
 run_exec "$SETUP_INSTALL/ubuntu/fd.sh"
-run_exec "$SETUP_INSTALL/ubuntu/yazi.sh"
+# run_exec "$SETUP_INSTALL/ubuntu/yazi-cargo.sh"
 # run_exec "$SETUP_INSTALL/ubuntu/treesitter-cargo.sh"
 
 # homebrew
