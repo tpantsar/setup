@@ -13,5 +13,5 @@ else
   echo "fd is already installed"
 fi
 
-echo "fd path: $(which fd)"
+echo "fd path: $(command -v fd)"
 echo "fd version: $(fd --version)"

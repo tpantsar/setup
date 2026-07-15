@@ -3,10 +3,11 @@
 
 if ! command -v zsh &>/dev/null; then
   echo "zsh not found, installing..."
+  sudo apt update
   sudo apt install -y zsh
 fi
 
-# oh-my-zsh - https://ohmyz.sh/#basic-installation
+# https://ohmyz.sh/#basic-installation
 if [ -d "$HOME/.oh-my-zsh" ] && command -v omz >/dev/null 2>&1; then
   echo "Oh My Zsh is already installed. Updating with omz update ..."
   omz update
@@ -17,4 +18,4 @@ fi
 
 # Install zinit (plugin manager)
 # https://github.com/zdharma-continuum/zinit?tab=readme-ov-file#install
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+# bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
