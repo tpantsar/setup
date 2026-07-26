@@ -21,5 +21,5 @@ else
   echo "eza is already installed"
 fi
 
-echo "eza path: $(which eza)"
+echo "eza path: $(command -v eza)"
 echo "eza version: $(eza --version)"
