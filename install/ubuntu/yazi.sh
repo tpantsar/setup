@@ -20,7 +20,7 @@ case "$ARCH" in
     ;;
 esac
 
-LATEST_VERSION="$(curl -fsSL "https://api.github.com/repos/sxyazi/yazi/releases/latest" | grep -Po '"tag_name":\s*"v\K[^"]+')"
+LATEST_VERSION="$(curl -fsSL "https://api.github.com/repos/sxyazi/yazi/releases/latest" | /usr/bin/grep -Po '"tag_name":\s*"v\K[^"]+')"
 
 if [ -z "$LATEST_VERSION" ]; then
   echo "Failed to detect latest yazi version."
@@ -29,7 +29,8 @@ fi
 
 INSTALLED_VERSION=""
 if command -v yazi >/dev/null 2>&1; then
-  INSTALLED_VERSION="$(yazi --version | awk '{print $2}' | sed 's/^v//')"
+  INSTALLED_VERSION="$(yazi --version | awk '/Version:/ { print $2 }')"
+  # INSTALLED_VERSION="$(yazi --version | awk '{print $2}' | sed 's/^v//')"
 fi
 
 if [ -z "$INSTALLED_VERSION" ]; then
