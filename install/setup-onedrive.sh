@@ -17,7 +17,7 @@ SKIP_DIR=".*Temp.*"
 SERVICE_NAME="onedrive-personal.service"
 SERVICE_PATH="/usr/lib/systemd/user/$SERVICE_NAME"
 
-ONEDRIVE_PATH=$(which onedrive)
+ONEDRIVE_PATH=$(command -v onedrive)
 echo "Detected OneDrive client at: $ONEDRIVE_PATH"
 
 if [ ! -f "$CONFIG_FILE" ]; then
