@@ -7,8 +7,9 @@ bash "$SETUP_INSTALL/node.sh"
 
 bash "$SETUP_INSTALL/tmuxifier.sh"
 bash "$SETUP_INSTALL/tpm.sh"
-bash "$HOME/bin/tmset"
-
+bash "$SETUP_INSTALL/treesitter.sh"
 bash "$SETUP_INSTALL/atuin.sh"
+
+bash "$HOME/bin/tmset"
 
 echo "Desktop setup completed."

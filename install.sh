@@ -6,12 +6,30 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_PATH="${SETUP_PATH:-$HOME/setup}"
 
 source "$SCRIPT_DIR/install/utils.sh"
-
 parse_args "$@"
 set -- "${POSITIONAL_ARGS[@]}"
 ensure_setup_repo "$@"
 
 source "$SETUP_INSTALL/steps/base.sh"
+
+echo "Starting Base setup..."
+sudo timedatectl set-timezone Europe/Helsinki
+
+run_exec "$SETUP_INSTALL/bypass-sudo.sh"
+run_exec "$SETUP_INSTALL/setup-permissions.sh"
+run_exec "$SETUP_INSTALL/ssh-keygen.sh"
+
+ensure_github_cli
+
+run_exec "$SETUP_INSTALL/ssh-gh.sh"
+run_exec "$SETUP_INSTALL/dotfiles.sh"
+run_exec "$SETUP_INSTALL/tailscale.sh"
+
+run_exec "$SETUP_INSTALL/delta.sh"
+run_exec "$SETUP_INSTALL/lazygit.sh"
+run_exec "$SETUP_INSTALL/lazydocker.sh"
+
+echo "Base setup completed."
 
 if [[ "$MODE" == "install" ]]; then
   source "$SETUP_INSTALL/steps/desktop.sh"
