@@ -6,7 +6,10 @@
 
 if command -v atuin >/dev/null 2>&1; then
   echo "atuin is already installed."
-  echo "$(atuin --version)"
+  echo "atuin path: $(command -v atuin)"
+  echo "atuin version: $(atuin --version)"
+  echo "Checking atuin updates with atuin update ..."
+  atuin update
   exit 1
 fi
 
