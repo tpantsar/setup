@@ -1,8 +1,12 @@
 #!/bin/bash
 ## https://support.mozilla.org/en-US/kb/install-firefox-linux
 
-if command -v firefox &>/dev/null; then
-  echo "Firefox is already installed. Exiting."
+FORCE="${FORCE:-0}"
+
+if command -v firefox &>/dev/null 2>&1 && [ "$FORCE" -eq 0 ]; then
+  echo "firefox is already installed. Exiting."
+  echo "firefox path: $(command -v firefox)"
+  echo "firefox version: $(firefox --version)"
   exit 0
 fi
 
