@@ -10,8 +10,6 @@ parse_args "$@"
 set -- "${POSITIONAL_ARGS[@]}"
 ensure_setup_repo "$@"
 
-source "$SETUP_INSTALL/steps/base.sh"
-
 echo "Starting Base setup..."
 sudo timedatectl set-timezone Europe/Helsinki
 

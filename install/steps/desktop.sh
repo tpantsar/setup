@@ -5,6 +5,7 @@ bash "$SETUP_INSTALL/gcalcli.sh"
 bash "$SETUP_INSTALL/zk.sh"
 bash "$SETUP_INSTALL/node.sh"
 
+bash "$SETUP_INSTALL/neovim.sh"
 bash "$SETUP_INSTALL/tmuxifier.sh"
 bash "$SETUP_INSTALL/tpm.sh"
 bash "$SETUP_INSTALL/treesitter.sh"
