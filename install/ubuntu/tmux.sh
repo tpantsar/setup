@@ -64,7 +64,7 @@ else
   git clone "$repo" "$install_dir"
 fi
 
-cd "$install_dir"
+cd "$install_dir" || exit
 git -C "$install_dir" checkout --force "$latest_version"
 
 ./autogen.sh
