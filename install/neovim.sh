@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+# set -euo pipefail
 
-repo_dir="${HOME:?}/src/neovim"
-install_prefix="${HOME:?}/.local"
+repo_dir="$HOME/src/neovim"
+install_prefix="$HOME/.local"
 target_branch="release-0.12"
-target_version=0.12.0
+target_version=0.12.5
 build=Release
 
 have_cmd() {
