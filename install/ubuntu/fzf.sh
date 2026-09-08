@@ -1,7 +1,11 @@
 #!/bin/bash
 # https://github.com/junegunn/fzf?tab=readme-ov-file#using-git
 
-if command -v fzf &>/dev/null; then
+FORCE="${FORCE:-0}"
+
+dir="$HOME/.fzf"
+
+if command -v fzf &>/dev/null 2>&1 && [ "$FORCE" -eq 0 ]; then
   echo "fzf is already installed. Skipping."
   echo "fzf path: $(which fzf)"
   echo "fzf version: $(fzf --version)"
@@ -13,15 +17,15 @@ if ! command -v git &>/dev/null; then
   sudo apt install -y git
 fi
 
-if [ -d "$HOME/.fzf" ]; then
-  echo "Updating existing ~/.fzf directory ..."
-  cd "$HOME/.fzf"
-  git pull --rebase --autostash --depth 1 origin master
-  git checkout master
+if [ -d "$dir" ]; then
+  echo "Updating existing $dir directory ..."
+  git -C "$dir" pull --rebase --autostash --depth 1 origin master
+  git -C "$dir" checkout master
+else
+  echo "Cloning and installing fzf ..."
+  git clone --depth 1 https://github.com/junegunn/fzf.git "$dir"
 fi
 
-echo "Cloning and installing fzf ..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Create symlinks
