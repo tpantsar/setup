@@ -8,7 +8,7 @@ if ! command -v git &>/dev/null; then
 fi
 
 # Get latest lazygit version from GitHub
-LATEST_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
+LATEST_VERSION=$(curl -fsSL "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
 
 # Get installed lazygit version, if present
 INSTALLED_VERSION=""
